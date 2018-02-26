@@ -4,8 +4,15 @@
 		<meta charset="utf-8">
 		<title>Lesson2_3</title>
 		<script>
-			var arr = ['a', 'b', 'c', 'd'];
-			alert(arr[0] + '+' + arr[1] + ', ' + arr[2] + '+' + arr[3]);
+			var array = {
+				ru: ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'],
+				en: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+			};
+			var lang = 'ru';
+			var day = 3;
+			alert(array[lang][day]);
+			
+			
 		</script>
 	</head>
 	<body>
