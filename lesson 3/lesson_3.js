@@ -119,23 +119,63 @@ var a = 3;
 				alert('Неверно');
 			}		
 15
-	var num = 2;.
+	var num = 3;
 		switch (num){
 			case 1:
 		result = 'зима';
 		break;
-		switch (num)
 			case 2:
 		result = 'Весна';
 		break;
-		switch (num)
-			case 1:
+			case 3:
 		result = 'Лето';
 		break;
-		switch (num)
-			case 1:
+			case 4:
 		result = 'Осень';
 		break;
 		}
-		alert(num);
+		alert(result);
 	
+16
+var day = 21;
+		if 
+			(day <= 10) {
+		alert('Первая декада');
+		}
+		if 
+			(day >= 11 && day <= 20) {
+		alert('Вторая декада');
+		}
+		
+		if 
+			(day >= 21 && day <= 31){
+		alert('Третья декада');
+		}
+17
+var month  = 21;
+		if 
+			(month == 12 || month <= 2) {
+		alert('Зима');
+		}
+		if 
+			(month >= 3 && month <= 5) {
+		alert('Весна');
+		}
+		
+		if 
+			(day >= 6 && day <= 8){
+		alert('Лето');
+		}
+		
+		if 
+			(day >= 9 && day <= 11){
+		alert('Осень');
+		}
+18
+var str  = 'abcde';
+		if (str[0] == 'a'){
+			alert('да');
+		}
+		else{
+			alert('Нет');
+		}
