@@ -179,3 +179,28 @@ var str  = 'abcde';
 		else{
 			alert('Нет');
 		}
+19
+var str = '12345';
+			if (str [0] == '1' || str[1] == '2' || str[2] == '3'){
+				alert('да');
+			}
+			else {
+				alert('нет');
+			}
+20
+var str = '123';
+	var sum = Number(str[0]) +  Number(str[1]) +  Number(str[2]);
+		alert(sum);		
+21 
+
+var str = '456456';
+			var sum1 = Number(str[0]) +  Number(str[1]) +  Number(str[2]);
+			var sum2 = Number(str[3]) +  Number(str[4]) +  Number(str[5]);
+				if (sum1 == sum2){
+					alert('Да');
+				}
+				else {
+					alert('Нет');
+				}
+			
+		alert(sum);
