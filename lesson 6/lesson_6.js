@@ -61,15 +61,13 @@ var str = 'Я-учу-javascript!';
 		alert(array[2] + '.' + array[1] + '.' + array[0]);
 
 11
-var a = 22; 
-		var b = 344;
-		alert(Math.abs(a-b));
+var array = ['я', 'учу', 'javascript', '!'];
+		alert(array.join('+'));
 			
 12
-var a = 3; 
-		var b = 5;
-		var c = Math.abs(b-a);
-		alert(c);
+var str = 'я учу javascript';
+		var str1 = str.slice(0, 1).toUpperCase() + str.slice(1);
+		alert(str1);
 13 
 var arr = [12, 15, 20, 25, 59, 79];
 		var summ = 0; 

@@ -4,9 +4,12 @@
 		<meta charset="utf-8">
 		<title>Lesson6_test</title>
 		<script> 	 
-		var data = '2025-12-31';
-		var array = data.split('-')
-		alert(array[2] + '.' + array[1] + '.' + array[0]);
+		var str = 'я учу javascript';
+		var array = str.split(' ');
+		for (var i = 0; i < array.length; i++ ){ 
+			array[i] = array[i].slice(0, 1).toUpperCase() + array[i].slice(1);
+		}
+		alert(array);
 		
 		</script>
 	</head>
