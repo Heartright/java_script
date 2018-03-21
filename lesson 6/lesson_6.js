@@ -1,57 +1,64 @@
 1
-			var a = 10;
-			var b = 3;
-			alert(a % b);
+		var str = 'js'
+		alert(str.toUpperCase());	
 
 2
-	var a = 10;
-			var b = 3;
-			var rez = a % b;
-			if (rez != 0) {
-				alert('Делится ' + rez);
-			}
-			else {
-				alert('Делится с остатком ' + rez);
-			}
+		var str = 'js'
+		alert(str.toLowerCase());
 3
-var st = Math.pow(2, 10);
-		alert(st);
-
+		var str = 'я учу javascript!'
+		alert(str.length);
 4
-alert(Math.sqrt(245));
+	var str = 'я учу javascript!'
+		alert(str.substr(1, 4));
+		
+	var str = 'я учу javascript!'
+		alert(str.substring(2, 6));
 
-
+	var str = 'я учу javascript!'
+		alert(str.slice(2, 5));
+	/*Вырезаем javascript*/	
+	var str = 'я учу javascript!'
+		alert(str.substr(5, 11));
+	var str = 'я учу javascript!'
+		alert(str.substring(5, 16));
+	var str = 'я учу javascript!'
+		alert(str.slice(6, 16));
+		
 5
-var array = [4, 2, 5, 19, 13, 0, 10];
-		var summ = 0;
-		for (var i = 0; i < array.length; i++) {
-			summ += Math.pow(array[i], 3);
-		}
-			alert(Math.sqrt(summ));
+	var str = 'я учу javascript!'
+		alert(str.indexOf('учу'));
 		
 	
 6
-alert(Math.sqrt(379).toFixed(0));
-		alert(Math.sqrt(379).toFixed(1));
-		alert(Math.sqrt(379).toFixed(2));
+		var str = 'Hello world';
+		var n = 5;
+		if (str.length > n ) {
+			var result = str.substr(0, n) + '...';
+		}
+		else {
+			var result  = str;
+		}
+		alert(result);
 
 7
-var sqr = Math.sqrt(587);
-			var obj = {'floor': Math.floor(sqr), 'ceil': Math.ceil(sqr)};
+var str = 'Я-учу-javascript!';
+		alert(str.replace(/-/g, '!'))
 
 8
-alert(Math.min (4, -2, 5, 19, -130, 0, 10));
-		alert(Math.max (4, -2, 5, 19, -130, 0, 10));
+		var str = 'я учу javascript!';
+		var arr = str.split(' ');
+		alert(arr);
 		
 9
-	alert(Math.floor(Math.random() * 100) + 1 );
+	var str = 'я учу javascript!';
+		var arr = str.split('');
+		alert(arr);
 	
 10
-		var array = [];
-		for(var i = 0; i < 10; i++){
-			array[i] = Math.floor(Math.random() * 100) + 1;
-		}
-		alert(array);
+		var data = '2025-12-31';
+		var array = data.split('-')
+		alert(array[2] + '.' + array[1] + '.' + array[0]);
 
 11
 var a = 22; 
