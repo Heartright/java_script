@@ -1,49 +1,32 @@
 1
-		var str = 'js'
-		alert(str.toUpperCase());	
+		var array1 = [1, 2, 3];
+		var array2 = [4, 5, 6];
+		alert(array1.concat(array2));
 
 2
-		var str = 'js'
-		alert(str.toLowerCase());
+		var array1 = [1, 2, 3];
+		alert(array1.reverse());
 3
-		var str = 'я учу javascript!'
-		alert(str.length);
+		var array1 = [1, 2, 3];
+		array1.push(4, 5 ,6); 
+		alert(array1);
 4
-	var str = 'я учу javascript!'
-		alert(str.substr(1, 4));
-		
-	var str = 'я учу javascript!'
-		alert(str.substring(2, 6));
-
-	var str = 'я учу javascript!'
-		alert(str.slice(2, 5));
-	/*Вырезаем javascript*/	
-	var str = 'я учу javascript!'
-		alert(str.substr(5, 11));
-	var str = 'я учу javascript!'
-		alert(str.substring(5, 16));
-	var str = 'я учу javascript!'
-		alert(str.slice(6, 16));
+		var array1 = [1, 2, 3];
+		array1.push(4, 5 ,6); 
+		alert(array1);
 		
 5
-	var str = 'я учу javascript!'
-		alert(str.indexOf('учу'));
+		var array1 = ['js', 'css', 'jq'];
+		alert(array1.shift());
 		
 	
 6
-		var str = 'Hello world';
-		var n = 5;
-		if (str.length > n ) {
-			var result = str.substr(0, n) + '...';
-		}
-		else {
-			var result  = str;
-		}
-		alert(result);
+		var array1 = ['js', 'css', 'jq'];
+		alert(array1.pop());
 
 7
-var str = 'Я-учу-javascript!';
-		alert(str.replace(/-/g, '!'))
+var array1 = [1, 2, 3, 4, 5];
+		alert(array1.splice(0, 3));
 
 8
 		var str = 'я учу javascript!';
