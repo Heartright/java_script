@@ -1,70 +1,55 @@
-1
+1 
+document.write("<tr><td></td>"); 
+		for (i = 1; i <= 9; i++) document.write("<td style = 'text-align: center;'>" + i + "</td>"); 
+			document.write("</tr>"); 
+		for (i = 1; i <= 9; i++) { 
+			document.write("<tr><td>" + i + "</td>"); 
+		for (j = 1; j <= 9; j++){ 
+			document.write("<td bgcolor = 'red', style = 'text-align: center;'>" + (i*j) + "</td>");
+				} 
+			document.write("</tr>"); 
+		} 
+
+2
 	var str = '';
 		for(var i = 1; i < 10; i++ ){
 			str += i;
 		}
 		 alert(str);
 
-2
+3
 	var str = '';
 		for(var i = 9; i > 0; i-- ){
 			str += i;
 		}
 		 alert(str);
-3
-	function func(a){
-			return a < 0;
-		}
 4
-	function get(num){
-				var arr = ['понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье'];
-				return arr [num - 1];
-			}
-5
-	var string = 'index.html';
-		if (string.substr(-5) == '.html') {
-			alert('true')
+	var str = '';
+		for(var i = 1; i < 10; i++ ){
+			str += i + '-';
 		}
-		else {
-			alert('false')
+		 alert(str);
+5
+	var str = '';
+		for(var i = 1; i <= 20; i++){
+			str += 'x';
+			document.write(str + '<br>');
+		}
+		
+6
+	var str = '';
+		for(var i = 1; i < 10 ; i++){
+			for(var j = 1; j <= i; j++ ){
+			document.write(i)
+			}
+		document.write(str + '<br>');
 		}
 		
 	
-6
-		var array1 = ['js', 'css', 'jq'];
-		alert(array1.pop());
-
 7
-var array1 = [1, 2, 3, 4, 5];
-		alert(array1.slice(0, 3));
-
-8
-		var array1 = [1, 2, 3, 4, 5];
-		alert(array1.spice(-2));
+	var str = '';
+		for(var i = 1; i <= 5; i++){
+			str += 'xx';
+			document.write(str + '<br>');
+		}
 		
-9
-	var array1 = [1, 2, 3, 4, 5];
-		array1.splice(1, 2);
-		alert(array1);
-10
-		var array1 = [1, 2, 3, 4, 5];
-		var res = array1.splice(1, 3);
-		alert(res);
-
-11
-var array1 = [1, 2, 3, 4, 5];
-		array1.splice(3, 0,  'a', 'b', 'c');
-		alert(array1);
-			
-12
-var array1 = [1, 2, 3, 4, 5];
-		array1.splice(1, 0, 'a', 'b');
-		array1.splice(6, 0, 'c');
-		array1.splice(8, 0, 'e');
-		alert(array1);
-13 
-var array1 = [3, 4, 1, 2, 7];
-		alert(array1.sort());
-14
-var obj = {js:'test', jq: 'hello', css: 'world'};
-		alert(Object.keys(obj));
