@@ -1,12 +1,16 @@
 1
-	function func(a, b){
-			return a == b;
+	var str = '';
+		for(var i = 1; i < 10; i++ ){
+			str += i;
 		}
+		 alert(str);
 
 2
-	function func(a, b){
-			return a + b > 10;
+	var str = '';
+		for(var i = 9; i > 0; i-- ){
+			str += i;
 		}
+		 alert(str);
 3
 	function func(a){
 			return a < 0;
