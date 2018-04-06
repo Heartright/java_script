@@ -1,14 +1,11 @@
 1 
-document.write("<tr><td></td>"); 
-		for (i = 1; i <= 9; i++) document.write("<td style = 'text-align: center;'>" + i + "</td>"); 
-			document.write("</tr>"); 
-		for (i = 1; i <= 9; i++) { 
-			document.write("<tr><td>" + i + "</td>"); 
-		for (j = 1; j <= 9; j++){ 
-			document.write("<td bgcolor = 'red', style = 'text-align: center;'>" + (i*j) + "</td>");
-				} 
-			document.write("</tr>"); 
-		} 
+		var array = [];
+		var str = 'x';
+		for(var i = 0; i <= 10; i++  ){
+			array.push(str);
+			str += 'x';
+		}
+		alert(array);
 
 2
 	var str = '';
