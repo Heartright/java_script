@@ -5,13 +5,16 @@
 		<title>Lesson9_test</title>
 		<table>
 		<script> 
-		var array = [];
-		var str = 'x';
-		for(var i = 0; i <= 10; i++  ){
-			array.push(str);
-			str += 'x';
-		}
-		alert(array);
+		function arr(array){
+			var summ = 0;
+			for(var i = 0; i < array.length; i++){
+				summ += array[i];
+				while (summ > 10) {
+					return i + 1;
+					}
+				}
+			}	
+		alert(arr([1, 2, 3, 3, 1, 5, 4, 6 ]));
 		</script>
 		<table>
 	</head>
