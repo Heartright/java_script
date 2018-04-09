@@ -39,26 +39,32 @@
 			}	
 		alert(arr([1, 2, 3, 3, 1, 5, 4, 6 ]));
 5
-	var str = '';
-		for(var i = 1; i <= 20; i++){
-			str += 'x';
-			document.write(str + '<br>');
-		}
+	var array = [1, 2, 3, 4 , 5, 6, 7, 8];
+			var newarray = [];
+			for(var i = array.length - 1; i >= 0; i--){
+				newarray.push(array[i]);
+				}	
+		alert(newarray);
 		
 6
-	var str = '';
-		for(var i = 1; i < 10 ; i++){
-			for(var j = 1; j <= i; j++ ){
-			document.write(i)
-			}
-		document.write(str + '<br>');
-		}
+	var array = [[1, 2, 3], [4, 5], [6]];
+			var summ = 0;
+			for(var i = 0; i < array.length; i++){
+				for(var j = 0; j < array[i].length; j++)
+					summ += array[i][j];
+				}	
+		alert(summ);
 		
 	
 7
-	var str = '';
-		for(var i = 1; i <= 5; i++){
-			str += 'xx';
-			document.write(str + '<br>');
-		}
+	var array = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]];
+			var summ = 0;
+			for(var i = 0; i < array.length; i++){
+				for(var j = 0; j < array[i].length; j++){
+					for(var k = 0; k < array[i][j].length; k++){
+						summ += array[i][j][k];
+						}
+					}
+				}	
+		alert(summ);
 		
