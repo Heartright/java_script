@@ -26,16 +26,19 @@
 		str = array.join('');
 		alert(str);
 
-3
-	function getDigitsSum(digit){
-			var digit = String(digit);
-			var summ = 0;
-			for (var i = 0; i < digit.length; i++){
-				summ += Number(digit[i]) 
+3 Сделайте функцию inArray, которая определяет, есть в массиве элемент с заданным текстом или нет. Функция первым параметром должна принимать текст элемента, а вторым - массив, в котором делается поиск. Функция должна возвращать true или false.
+	
+	function inArray(str, array){
+			for(var i = 0; i < array.length; i++){
+				if (array[i] == str){
+					return true;
+				}
+				return false;
 			}
-				return summ;
-			}
-			alert(getDigitsSum(123456));
+		}
+		var str = 'var'
+		var array = ['var', 'text', 'hello'];
+		alert(inArray(str, array));
 4
 	function getDigitsSum(digit){
 			var digit = String(digit);
@@ -50,43 +53,5 @@
 				document.write(i + '<br>')
 				}
 			}
-5
-	function isEven(even){
-			if (even % 2 == 0 ){
-				return true;
-			}
-			else{
-				return false;
-			}
-		
-6
-	function isEven(even){
-			if (even % 2 == 0 ){
-				return true;
-			}
-				else{
-					return false;
-				}
-		}
-			var array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-			var res = [];
-			for(var i = 0; i < array.length; i++){
-				if(isEven(array[i])){
-					res.push(array[i]);
-				}
-			}
-			alert(res);
-		
-	
-7
-	function getDivisors(num){
-			var array = [];
-			for (var i = 1; i <= num; i++ ){
-				if (num % i == 0){
-					array.push(i);
-				}
-			}
-				return array;
-			}
-			alert(getDivisors(22));
+
 		

@@ -5,19 +5,20 @@
 		<title>Lesson_test</title>
 		<table>
 		<script> 
-		function ucfirst(str){
-			return str[0].toUpperCase() + str.substr(1);
+		function sortArray(array) {
+			for(var i = 0; i < array.length; i++ ){
+			if (i % 2 == 0 ){
+				var sort = array[i - 1];
+				array[i - 1] = array[i];
+				array[i] = sort;
+				}
+				return sort;
+			}
 		}
+		var array = ['123456'];
+		str = array.split('');
+		alert(sortArray(array));
 		
-		var str = 'var text hello'
-		var array = str.split(' ');
-		for(var i = 0; i < array.length; i++){
-			array[i] = ucfirst(array[i]);
-		}
-		
-		str = array.join(' ');
-		alert(str);
-			
 		</script>
 		<table>
 	</head>
