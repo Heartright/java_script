@@ -6,17 +6,18 @@
 		<table>
 		<script> 
 		function sortArray(array) {
-			for(var i = 0; i < array.length; i++ ){
+			for(var i = 0; i < array.length; i++){
 			if (i % 2 == 0 ){
 				var sort = array[i - 1];
 				array[i - 1] = array[i];
 				array[i] = sort;
 				}
-				return sort;
+				str = array.join('');
+				return str;
 			}
 		}
 		var array = ['123456'];
-		str = array.split('');
+		var array = str.split('')
 		alert(sortArray(array));
 		
 		</script>
