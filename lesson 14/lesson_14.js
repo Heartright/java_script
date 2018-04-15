@@ -40,18 +40,16 @@
 		var array = ['var', 'text', 'hello'];
 		alert(inArray(str, array));
 4
-	function getDigitsSum(digit){
-			var digit = String(digit);
-			var summ = 0;
-			for (var i = 0; i < digit.length; i++){
-				summ += Number(digit[i]) 
+	var str = '123456';
+			var array = str.split('')
+			for(var i = 0; i < array.length; i++){
+			if (i % 2 !== 0 ){
+				var sort = array[i - 1];
+				array[i - 1] = array[i];
+				array[i] = sort;
+				}	
 			}
-				return summ;
-			}
-			for (var i = 0; i <= 2017; i++){
-				if (getDigitsSum(i) == 13){
-				document.write(i + '<br>')
-				}
-			}
+			str = array.join('');
+			alert(str);
 
 		
