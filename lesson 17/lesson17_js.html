@@ -5,13 +5,16 @@
 		<title>Lesson_test</title>
 		<table>
 		<script> 
-			function buttonClick(elem){
-				alert(elem.value)
+			function inputClick(elem){
+				elem.value='Ой, я поменял текст!'; 
+			}
+			function inputClick_2(elem){
+				elem.value='Ой, а теперь еще раз поменял!'; 
 			}
 		</script>
 	</head>
 	<body>
-		<input type="text" value="Нажмите на меня!" onfocus="buttonClick(this)">
+		<input style="width: 400px;" type="text" value="Нажмите на меня!" onfocus="inputClick(this)" onblur="inputClick_2(this)">
 		
 	</body>
 </html>

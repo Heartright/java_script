@@ -62,21 +62,30 @@
 		<input type="text" value="Нажмите на меня!" onfocus="buttonClick(this)">
 		
 	</body>
-9. Дан массив с числами. С помощью цикла проверьте, что в нем есть элемент со значением 5. Как только будет найден первый такой элемент - выведите 'Есть' и оборвите цикл. Если такого элемента нет - ничего не выводите.
-var array = [1, 0, 3, 3, 20, 5, 2, 3, 4, -2];
-			for (var i = 0; i < array.length; i ++) {
-				if (array[i] == 5){
-					document.write('Есть');
-					break;
-				}
+9. 
+<script> 
+			function buttonClick(elem){
+				elem.value='Ой, я поменял текст!'; 
 			}
-10. Дан массив с числами. С помощью цикла найдите сумму элементов этого массива.
-var array = [1, 0, 3, 3, 20, 5, 2, 3, 4, -2];
-			var summ = 0;
-			for (var i = 0; i < array.length; i ++) {
-				summ += array[i];
+		</script>
+<body>
+		<input type="text" value="Нажмите на меня!" onfocus="buttonClick(this)">
+		
+</body>
+
+10. 
+	<script> 
+			function inputClick(elem){
+				elem.value='Ой, я поменял текст!'; 
 			}
-			alert(summ);
+			function inputClick_2(elem){
+				elem.value='Ой, а теперь еще раз поменял!'; 
+			}
+	</script>
+	<body>
+		<input style="width: 400px;" type="text" value="Нажмите на меня!" onfocus="inputClick(this)" onblur="inputClick_2(this)">
+		
+	</body>
 11. Дан массив с числами. С помощью цикла найдите сумму квадратов элементов этого массива.
 var array = [1, 0, 3, 3, 20, 5, 2, 3, 2];
 			var summ = 0;
