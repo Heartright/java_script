@@ -39,7 +39,7 @@
 		var str = 'var'
 		var array = ['var', 'text', 'hello'];
 		alert(inArray(str, array));
-4
+4 Дана строка, например, '123456'. Сделайте из нее '214365'.
 	var str = '123456';
 			var array = str.split('')
 			for(var i = 0; i < array.length; i++){
