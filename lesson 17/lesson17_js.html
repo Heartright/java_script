@@ -5,16 +5,14 @@
 		<title>Lesson_test</title>
 		<table>
 		<script> 
-			function inputClick(elem){
-				elem.value='Ой, я поменял текст!'; 
-			}
-			function inputClick_2(elem){
-				elem.value='Ой, а теперь еще раз поменял!'; 
+			function moveClick(){
+				elem = document.getElementById('input');
+				elem.value = 'Мои css классы: ' + elem.className;
 			}
 		</script>
 	</head>
 	<body>
-		<input style="width: 400px;" type="text" value="Нажмите на меня!" onfocus="inputClick(this)" onblur="inputClick_2(this)">
-		
+		<input style="margin-right: 4px; width: 300px;" type='text' value="Ку-ку" id="input" class="eee www ddd">
+		<button onclick="moveClick()">Нажми на меня!</button>
 	</body>
 </html>

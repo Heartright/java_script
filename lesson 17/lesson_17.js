@@ -86,18 +86,157 @@
 		<input style="width: 400px;" type="text" value="Нажмите на меня!" onfocus="inputClick(this)" onblur="inputClick_2(this)">
 		
 	</body>
-11. Дан массив с числами. С помощью цикла найдите сумму квадратов элементов этого массива.
-var array = [1, 0, 3, 3, 20, 5, 2, 3, 2];
-			var summ = 0;
-			for (var i = 0; i < array.length; i ++) {
-				summ += array[i] * array[i];
+11.
+		<script> 
+			function inputClick(elem){
+				elem.value= 'Ку-Ку'; 
 			}
-			alert(summ);
-12. Дан массив с числами. Найдите среднее арифметическое его элементов (сумма элементов, делить на количество).
-var array = [1, 0, 3, 3, 20, 5, 2, 3, 2];
-			var summ = 0;
-			for (var i = 0; i < array.length; i ++) {
-				summ += array[i];
+		</script>
+	<body>
+		<p>	Это inpit type="submit".</p>
+		
+		<input style="width: 300px" type="submit" value="Нажмите на меня!" onfocus="inputClick(this)">
+		
+	</body>
+	
+	
+12. <script>  
+			function inputClick(elem){
+				elem.value= 'О, теперь на меня больше не нажать!'
+				elem.disabled= true; 
 			}
-			var res = sum / array.length;
-			alert(summ);
+		</script>
+	<body>
+		<p>	Это inpit type="submit".</p>
+		
+		<input style="width: 300px" type="submit" value="Нажмите на меня!" onfocus="inputClick(this)">
+		
+	</body>
+	
+13
+<script> 
+			function mouseOver(elem){
+				elem.src= '2.jpg';
+			}
+			function mouseOut(elem){
+				elem.src= '1.jpg';
+			}
+		</script>
+	<body>
+		
+		<img src="1.jpg" width="150" id="test" onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">
+		
+	</body>
+	
+14
+<script> 
+			function buttonClick(){
+				elem = document.getElementById('input');
+				elem.style.color = 'red';
+				elem.style.width = '300px';
+			}
+		</script>
+	<body>
+		<input style="margin-right: 4px;" type="text" id="input" value="Ку-ку">
+		<button onclick="buttonClick()">Нажми на меня!</button>
+		
+	</body>
+	
+15 
+		<script> 
+			function bottonHide(){
+				elem = document.getElementById('input');
+				elem.style.display = 'none';
+			}
+			function buttonShow(){
+				elem = document.getElementById('input');
+				elem.style.display = 'inline-block';
+			}
+		</script>
+	<body>
+		<input style="margin-right: 4px;" type="text" id="input" value="Ку-ку">
+		<button style="margin-right: 4px;" onclick="bottonHide()">Нажми на меня!</button>
+		<button onclick="buttonShow()">Нажми потом на меня!</button>
+	</body>
+	
+16
+function bottonClick(){
+				elem = document.getElementById('input');
+				elem.value = 'Ой, я поменял свой текст и css!';
+				elem.style.height = '50px';
+				elem.style.width = '300px';
+				elem.style.color = 'red';
+				elem.style.borderRadius = '10px';
+				
+			}
+		</script>
+	<body>
+		<input style="margin-right: 4px;" type="text" id="input" value="Ку-ку"><br><br>
+		<button onclick="bottonClick()">Нажми на меня!</button>
+		
+	</body>
+	
+17
+
+<script> 
+			function submitClick(){
+				var elem1 = document.getElementById('block')
+				var elem2 = document.getElementById('unblock')
+				elem1.value = 'О, теперь на меня больше не нажать!';
+				elem1.disabled = true;
+				elem2.style.display = 'block';
+				
+			}
+			function submitTwoClick(){
+				var elem1 = document.getElementById('block')
+				var elem2 = document.getElementById('unblock')
+				elem1.value = 'О, на меня снова можно нажать!';
+				elem1.disabled = false;
+				elem2.style.display = 'none';
+				
+			}
+		</script>
+	<body>
+		<p>
+			Это input type="submit".
+		</p>
+		<input style="width: 300px;margin-bottom: 10px;" type="submit" id="block" onclick="submitClick(this)" value="Нажми на меня!"><br>
+		<input style="display: none; width: 300px;" type="submit" id="unblock"  onclick="submitTwoClick('button')" value="Нажми чтобы отблокировать элемент">
+		
+	</body>
+	
+18
+<script> 
+			function counterClick(elem){
+				elem.value = parseInt(elem.value) + 1;
+			}
+		</script>
+	<body>
+		<p>
+			Кнопка считает кол-во нажатий по ней.
+		</p>
+		<input style="width: 300px;" type="submit" onclick="counterClick(this)" value="0">
+	</body>
+19
+<script> 
+			function moveClick(){
+				elem = document.getElementById('input');
+				elem.value = 'Теперь я плаваю справа!';
+				elem.style.cssFloat = 'right'
+			}
+		</script>
+	<body>
+		<input style="margin-right: 4px; width: 300px;" type='text' value="Ку-ку" id="input">
+		<button onclick="moveClick()">Нажми на меня!</button>
+	</body>
+20
+<script> 
+			function moveClick(){
+				elem = document.getElementById('input');
+				elem.value = 'Мои css классы: ' + elem.className;
+			}
+		</script>
+	<body>
+		<input style="margin-right: 4px; width: 300px;" type='text' value="Ку-ку" id="input" class="eee www ddd">
+		<button onclick="moveClick()">Нажми на меня!</button>
+	</body>
