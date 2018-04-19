@@ -5,14 +5,15 @@
 		<title>Lesson_test</title>
 		<table>
 		<script> 
-			function moveClick(){
-				elem = document.getElementById('input');
-				elem.value = 'Мои css классы: ' + elem.className;
+			function lockClick(elem){
+				elem.disabled = true;
+				elem.style.cursor = 'not-allowed';
 			}
 		</script>
 	</head>
 	<body>
-		<input style="margin-right: 4px; width: 300px;" type='text' value="Ку-ку" id="input" class="eee www ddd">
-		<button onclick="moveClick()">Нажми на меня!</button>
+	<p>	Обратите внимание на курсор в различных состояниях
+	</p>
+		<input type='submit' onclick="lockClick(this)" value="Нажми на меня!" id="input1">
 	</body>
 </html>

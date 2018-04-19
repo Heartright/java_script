@@ -240,3 +240,70 @@ function bottonClick(){
 		<input style="margin-right: 4px; width: 300px;" type='text' value="Ку-ку" id="input" class="eee www ddd">
 		<button onclick="moveClick()">Нажми на меня!</button>
 	</body>
+21
+<script> 
+			function moveClick(){
+				elem1 = document.getElementById('input1');
+				elem2 = document.getElementById('input2');
+				var tmp = elem1.value;
+				elem1.value = elem2.value;
+				elem2.value = tmp;
+			}
+		</script>
+	<body>
+		<input style="margin-right: 4px;" type='text' value="Привет!" id="input1">
+		<input style="margin-right: 4px;" type='text' value="Пока!" id="input2">
+		<button onclick="moveClick()">Нажми на меня!</button>
+	</body>
+	
+22
+<script> 
+			function sqrClick(){
+				var elem1 = document.getElementById('input1');
+				var value = elem1.value;
+				var sgr = document.getElementById('sqr');
+				sqr.value = value*value
+			}
+		</script>
+	<body>
+	<p>	По нажатию на кнопку в нижнем инпуте появится квадрат числа из верхнего инпута.
+	</p>
+		<input style="margin-right: 4px; width: 200px" type='text' placeholder="Введите число!" id="input1">
+		<input style="margin-right: 4px; width: 200px" type='text' value="Здесь появится результат" id="sqr" disabled>
+		<button onclick="sqrClick()">Нажми на меня!</button>
+	</body>
+	
+23
+<script> 
+			function sqrClick(){
+				var elem1 = document.getElementById('input1');
+				var value = elem1.value;
+				if(!isNaN(value)){
+				var sgr = document.getElementById('sqr');
+				sqr.value = value*value;
+				}
+				else {
+					alert('Введено не число!')
+				}
+			}
+		</script>
+	<body>
+	<p>	По нажатию на кнопку в нижнем инпуте появится квадрат числа из верхнего инпута. Если введено не число - должна показаться ошибка.
+	</p>
+		<input style="width: 200px" type='text' value="" placeholder="Введите число!" id="input1"><br><br>
+		<input style="width: 200px" type='text' value="Здесь появится результат" id="sqr" disabled><br><br>
+		<button onclick="sqrClick()">Нажми на меня!</button>
+	</body>
+	
+24
+<script> 
+			function lockClick(elem){
+				elem.disabled = true;
+				elem.style.cursor = 'not-allowed';
+			}
+		</script>
+	<body>
+	<p>	Обратите внимание на курсор в различных состояниях
+	</p>
+		<input type='submit' onclick="lockClick(this)" value="Нажми на меня!" id="input1">
+	</body>
