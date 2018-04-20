@@ -307,3 +307,39 @@ function bottonClick(){
 	</p>
 		<input type='submit' onclick="lockClick(this)" value="Нажми на меня!" id="input1">
 	</body>
+	
+25
+<style>
+			button, input {
+				width: 200px;
+			}
+		</style >
+		
+	<script> 
+			function addClick(text){
+				var elem = document.getElementById('input');
+				elem.value = elem.value + text;
+			}
+		</script>
+	<body>
+	
+		<input style="margin-right: 4px; width: 200px" type='text' id="input"><br><br>
+		
+		<button type="submit" onclick="addClick('+')">Я добавлю +</button><br>
+		<button onclick="addClick('-')">Я добавлю -</button><br>
+		<button onclick="addClick('/')">Я добавлю /</button><br>
+		<button onclick="addClick('*')">Я добавлю *</button><br><br><br>
+		
+		<button onclick="addClick('1')">1</button><br>
+		<button onclick="addClick('2')">2</button><br>
+		<button onclick="addClick('3')">3</button><br>
+		<button onclick="addClick('4')">4</button><br>
+		<button onclick="addClick('5')">5</button><br>
+		<button onclick="addClick('6')">6</button><br>		
+		<button onclick="addClick('7')">7</button><br>
+		<button onclick="addClick('8')">8</button><br>
+		<button onclick="addClick('9')">9</button><br>
+		<button onclick="addClick('0')">0</button><br>
+		
+		
+	</body>
