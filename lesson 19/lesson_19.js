@@ -14,68 +14,44 @@
 	
 4.
 
-function summaClick(){
-				var num1 = +document.getElementById('num1').value;
-				var num2 = +document.getElementById('num2').value;
-				var summ = document.getElementById('summ');
-				summ.innerHTML = num1 + num2;
+	<script> 
+			var date = new Date();
+			function setZero(num) {
+				if (num > 0 && num < 10){
+					return '0' + num;
+				}
+				else {
+					return num;
+				}
 			}
+			document.write(date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + ' '+ setZero(date.getDate()) + '.' + setZero(date.getMonth() + 1) + '.' + date.getFullYear());
+			
 		</script>
 	<body>
-		<input type="text" value="" id="num1">
-		+
-		<input type="text" value="" id="num2">
-		=
-		<span id="summ">?</span><br><br>
-		<button style="width: 200px;" onclick="summaClick()">Нажмите чтобы сложить</button>
-	</body>
 
 5. 
-<script> 
-			function textClick(){
-				var elem = document.getElementsByTagName('p');
-				for(var i = 0; i < elem.length; i++){
-					elem[i].innerHTML = 'Ку-Ку!';
-				}
-			}
-		</script>
-	<body>
-		<p>При нажатии на кнопку текст в каждом абзаце поменяется.</p>
-		<p>При нажатии на кнопку текст в каждом абзаце поменяется.</p>
-		<p>При нажатии на кнопку текст в каждом абзаце поменяется.</p>
-		<p>При нажатии на кнопку текст в каждом абзаце поменяется.</p>
-		<h2>А я h2 и не поменяюсь!</h2>
-		<input type="submit" style="width: 200px;" onclick="textClick()" value="Нажмите на меня!">
-	</body>
+			var date = new Date();
+			document.write(date.getDay());
 			
 6. 
-	<script> 
-			function textClick(){
-				var elem = document.getElementsByClassName('www');
-				for(var i = 0; i < elem.length; i++){
-					elem[i].innerHTML = i + 1;
-				}
+	var date = new Date();
+			var day = date.getDay();
+			
+			function weekDay(day) {
+				var days = ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'];
+				return days[day];
 			}
-		</script>
-	<body>
-		<h2 class="www">Заголовок с классом www.</h2>
-		<p class="www">Абзац с классом www.</p>
-		<p class="www">Абзац с классом www.</p>
-		<p>Просто абзац, не поменяется.</p>
-		<input type="submit" style="width: 200px;" onclick="textClick()" value="Нажмите на меня!">
-	</body>
+			document.write(weekDay(day));
 			
 7.
-	<script> 
-			function textClick(){
-				var elem = document.getElementById('elem');
-				alert(elem.getAttribute('class'));
-				}
-		</script>
-	<body>
-		<p id="elem" class="my-class">Абзац с class="my-class".</p>
-		<input type="submit" style="width: 300px;" onclick="textClick()" value="Нажми - и я выведу класс абзаца.">
-	</body>
+var date = new Date(2015, 0, 7);
+			var day = date.getDay();
+			
+			function weekDay(day) {
+				var days = ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'];
+				return days[day];
+			}
+			document.write(weekDay(day));
 			
 8. 
 <script> 
@@ -88,69 +64,25 @@ function summaClick(){
 		
 	</body>
 9. 
-<style>
-			.my-class {
-				color: red;
-			}
-			input {
-				width: 400px;
-			}
-</style >
-
-<script> 
-			function textClick(){
-				var elem = document.getElementById('elem');
-				alert(elem.getAttribute('class'));
-				}
-			function delClick(){
-				var elem = document.getElementById('elem');
-				elem.removeAttribute('class');
-				alert('Класс удален! Нажмите на первую кнопку чтобы проверить это!')
-				}
-		</script>
-	<body>
-		<p id="elem" class="my-class">Абзац с class="my-class". Класс задает красный цвет.</p>
-		<input type="submit" onclick="textClick()" value="Нажми - и я выведу класс абзаца."><br><br>
-		<input type="submit" onclick="delClick()" value="Нажми - и я удалю атрибут class для абзаца.">
-	</body>
+var time = Date.parse('1988-03-01T00:00:00');
+			
+			var date = new Date();
+			var now = date.getTime();
+			
+			var result = now - time;
+			result = result / (1000 * 60 * 60);
+			document.write(result);
+			
 
 10. 
-		<style>
-			.my-class {
-				color: red;
-			}
-			input {
-				width: 400px;
-			}
-		</style >
-		
-	<script> 
-			function textClick(){
-				var elem = document.getElementById('elem');
-				alert(elem.getAttribute('class'));
-				}
-			function delClick(){
-				var elem = document.getElementById('elem');
-				elem.setAttribute('class', 'new-class');
-				alert('Класс изменен! Нажмите на первую кнопку чтобы проверить это!')
-				}
-		</script>
-	<body>
-		<p id="elem" class="my-class">Абзац с class="my-class class". Класс "my-class" задает красный цвет.</p>
-		<input type="submit" onclick="textClick()" value="Нажми - и я выведу класс абзаца."><br><br>
-		<input type="submit" onclick="delClick()" value="Нажми - и я изменю атрибут class для абзаца на 'new-class'.">
-	</body>
+		var date = new Date();
+		var now = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0); 		
+		var result = Math.floor((date.getTime() - now.getTime()) / 1000);
+		document.write(result);
 11.
-	<script> 
-			function textClick(elem){
-				var text = document.getElementById('text');
-				text.innerHTML = elem.value;
-			}
-		</script>
-	<body>
-		<input type="text" value="" placeholder="Введите в меня текст!" onkeyup="textClick(this)">
-		<span id="text"></span>
-	</body>
+		var date = new Date();
+		var end = new Date(date.getFullYear(), date.getMonth(), date.getDay(), 23,59,59);		
+		document.write(Math.round((date - end) / 1000));
 	
 	
 12. 
