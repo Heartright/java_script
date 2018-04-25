@@ -8,12 +8,20 @@
 		</style >
 		
 	<script> 
-		var date = new Date();
-		var end = new Date(date.getFullYear(), date.getMonth(), date.getDay(), 23,59,59);		
-		document.write(Math.round((date - end) / 1000));
+			function birthDay(elem){
+				var inputDay = elem.value ;
+				var date = new Date();
+				var formOut = Date.parse(inputDay)
+				var dateNow = Date.parse(String(date.getFullYear()) + '-' + (date.getMonth() + 1) + '-' + date.getDate());
+				var res = Math.floor((formOut - dateNow) / 86400000) ;
+				document.getElementById('output').innerHTML = res;
+				
+			}
+			
 		</script>
 		</head>
 	<body>
-		
+		<input type="text" style="width: 500px;" placeholder="Введите дату своего рождения в формате 2014-12-31"  onblur="birthDay(this)">
+		<p id="output"> </p>
 	</body>
 </html>

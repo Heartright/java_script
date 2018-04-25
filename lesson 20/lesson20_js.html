@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Lesson_test</title>
+		<style>
+			.wrapper {
+				text-align: center;
+				
+			}
+			input {
+				width: 200px;
+			}
+			p {
+				font-size: 24px;
+			}
+			
+		</style >
+		
+		
+	<script> 
+			function stopTimer(){
+				document.getElementById('startTimer').disabled = false;
+				document.getElementById('stopTimer').disabled = true;
+				window.clearInterval(window.timerId);
+			}
+	
+			function timerStart(){
+				var elem = document.getElementById('timer');
+				document.getElementById('startTimer').disabled = true;
+				document.getElementById('stopTimer').disabled = false;
+				window.timerId = window.setTimeout(timerStart, 500);
+				elem.innerHTML = parseInt(elem.innerHTML) + 1;
+			}	
+			
+		</script>
+		</head>
+	<body>
+	<div class="wrapper">
+		<p id="timer"> 0 </p>
+		<input type="submit" value="Запустить таймер!" onclick="timerStart()" id="startTimer">	
+		<input type="submit" value="Остановить таймер!" onclick="stopTimer()" id="stopTimer" disabled>
+			</div>
+	</body>
+</html>

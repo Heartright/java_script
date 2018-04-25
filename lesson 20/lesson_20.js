@@ -1,12 +1,72 @@
-Работа с new Date
+Задачи на работу с таймерами в JavaScript
 
-1. Выведите на экран текущий день.
-			var date = new Date();
-			document.write(date.getDate());
+1. 	
+<style>
+			.wrapper {
+				text-align: center;
+				
+			}
+			input {
+				width: 200px;
+			}
+			p {
+				font-size: 24px;
+			}
+			
+		</style >
+	<script> 
+	
+			function timerClick(){
+				var elem = document.getElementById('timer');
+				elem.innerHTML = parseInt(elem.innerHTML) + 1;
+				
+				window.setTimeout(timerClick, 1000);
+			}	
+			
+		</script>
+	<body>
+	<div class="wrapper">
+		<p id="timer"> 0 </p>
+		<input type="submit" value="Нажмите на меня!" onclick="timerClick()">	
+			</div>
+	</body>
 
 2.
-			var date = new Date();
-			document.write(date.getMonth());
+<style>
+			.wrapper {
+				text-align: center;
+				
+			}
+			input {
+				width: 200px;
+			}
+			p {
+				font-size: 24px;
+			}
+			
+		</style >
+	<script> 
+			function stopTimer(){
+				document.getElementById('startTimer').disabled = false;
+				document.getElementById('stopTimer').disabled = true;
+				window.clearInterval(window.timerId);
+			}
+	
+			function timerStart(){
+				var elem = document.getElementById('timer');
+				document.getElementById('startTimer').disabled = true;
+				document.getElementById('stopTimer').disabled = false;
+				window.timerId = window.setTimeout(timerStart, 500);
+				elem.innerHTML = parseInt(elem.innerHTML) + 1;
+			}	
+		</script>
+	<body>
+	<div class="wrapper">
+		<p id="timer"> 0 </p>
+		<input type="submit" value="Запустить таймер!" onclick="timerStart()" id="startTimer">	
+		<input type="submit" value="Остановить таймер!" onclick="stopTimer()" id="stopTimer" disabled>
+			</div>
+	</body>
 
 3. 
 			var date = new Date();
