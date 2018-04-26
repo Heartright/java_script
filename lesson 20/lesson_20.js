@@ -69,29 +69,112 @@
 	</body>
 
 3. 
-			var date = new Date();
-			document.write(date.getFullYear());
-	
-4.
-
+<style>
+			.wrapper {
+				text-align: center;
+				
+			}
+			p {
+				font-size: 40px;
+				margin: 0;
+			}
+		</style >
 	<script> 
-			var date = new Date();
-			function setZero(num) {
-				if (num > 0 && num < 10){
+			function timeNow(){
+				var time = document.getElementById('time');
+				var date = new Date();
+				time.innerHTML = numZero(date.getHours()) + ':' + numZero(date.getMinutes()) + ':' + numZero(date.getSeconds()); 
+				window.timerId = window.setInterval(timeNow, 500);
+			}
+			function numZero(num){
+				if (num <= 9) {
 					return '0' + num;
 				}
 				else {
 					return num;
 				}
-			}
-			document.write(date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + ' '+ setZero(date.getDate()) + '.' + setZero(date.getMonth() + 1) + '.' + date.getFullYear());
 			
+			}
 		</script>
 	<body>
+	<div class="wrapper">
+		<p id="time"> 00:00:00 </p>
+			</div>
+	</body>
+4.
+
+	<style>
+			.wrapper {
+				text-align: center;
+
+			}
+			
+			#timestart{
+				font-size: 24px;
+			}
+			
+			input {
+				width: 200px;
+			}
+		</style >
+	<script> 
+
+			function timeStart(){
+				window.timerId = window.setInterval(counter, 300);
+				document.getElementById('start').disabled = true;
+			}
+			function timeOff(){
+				window.clearInterval(window.timerId);
+			}
+			
+			function counter(){
+				var timestart = document.getElementById('timestart')
+				var count = parseInt(timestart.innerHTML) - 1;
+				timestart.innerHTML = count;
+				if (count == 0) {
+					timeOff();
+				var timeoff = document.getElementById('timeoff');
+				timeoff.innerHTML = 'Обратный отсчет завершен.';
+				}
+			
+			}
+			
+		</script>
+	<body onload="timeNow()">
+	<div class="wrapper">
+		<p id="timestart"> 10 </p>
+		<p id="timeoff"></p>
+		<input type="submit" value="Запустите таймер!" onclick="timeStart()" id="start">
+			</div>
+	</body>
 
 5. 
-			var date = new Date();
-			document.write(date.getDay());
+	<style>
+			.wrapper {
+				text-align: center;
+			}
+		</style >
+	<script> 
+			function slider(){
+				window.timerId = window.setInterval(sliderStart, 1000)
+			}
+			
+			function sliderStart(){
+				if(window.number == undefined || window.number == 3){
+					window.number = 1;
+				}
+				else 
+					window.number = window.number + 1;
+					var img = document.getElementById('img');
+					img.src = window.number + '.png'
+			}
+			
+		</script>
+	<body onload="slider()">
+	<div class="wrapper">
+			<img src="1.png" id="img">
+			</div>
+	</body>
 			
 6. 
 	var date = new Date();
