@@ -176,25 +176,94 @@
 			</div>
 	</body>
 			
-6. 
-	var date = new Date();
-			var day = date.getDay();
-			
-			function weekDay(day) {
-				var days = ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'];
-				return days[day];
+6. <style>
+			.wrapper{
+				text-align: center;
 			}
-			document.write(weekDay(day));
+			p {
+				font-size: 24px;
+			}
+			input {
+				width: 200px;
+			}
+			
+		</style >
+	<script> 
+			function slider(){
+				window.timerId = window.setInterval(sliderStart, 1000);
+				document.getElementById('slider').disabled = true;
+			}
+			function sliderStart(){
+				var img1 = document.getElementById('img1');
+				var img2 = document.getElementById('img2');
+				var img3 = document.getElementById('img3');
+				var tmp = img1.src;
+				img1.src = img2.src;
+				img2.src = img3.src;
+				img3.src = tmp;
+			}
+		</script>
+	<body>
+	<div class="wrapper">
+			<img src="1.png" id="img1">
+			<img src="2.png" id="img2">
+			<img src="3.png" id="img3"><br><br>
+			<input type="submit" value="Запустить карусель!" onclick="slider()" id="slider">
+			</div>
+	</body>
 			
 7.
-var date = new Date(2015, 0, 7);
-			var day = date.getDay();
-			
-			function weekDay(day) {
-				var days = ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'];
-				return days[day];
+	<style>
+			.wrapper{
+				text-align: center;
 			}
-			document.write(weekDay(day));
+			p {
+				font-size: 24px;
+			}
+			input {
+				width: 200px;
+			}
+			
+		</style >
+	<script> 
+			function sliderOn(){
+				window.timerId = window.setInterval(sliderStart, 1000);
+				document.getElementById('sliderOn').disabled = true;
+				document.getElementById('sliderOff').disabled = false;
+			}
+			function sliderOff() {
+				window.clearInterval(window.timerId);
+				document.getElementById('sliderOn').disabled = false;
+				document.getElementById('sliderOff').disabled = true;
+			}
+			function sliderStart(){
+				var img1 = document.getElementById('img1');
+				var img2 = document.getElementById('img2');
+				var img3 = document.getElementById('img3');
+				var img4 = document.getElementById('img4');
+				var img5 = document.getElementById('img5');
+				var img6 = document.getElementById('img6');
+				var tmp = img1.src;
+				img1.src = img2.src;
+				img2.src = img3.src;
+				img3.src = img4.src;
+				img4.src = img5.src;
+				img5.src = img6.src;
+				img6.src = tmp;	
+			}
+		</script>
+	<body>
+	<div class="wrapper">
+			<img src="1.png" id="img1">
+			<img src="2.png" id="img2">
+			<img src="3.png" id="img3">
+			<img src="4.png" id="img4">
+			<img src="5.png" id="img5">
+			<img src="6.png" id="img6"><br><br>
+			<input type="submit" value="Запустить карусель!" onclick="sliderOn()" id="sliderOn">
+			<input type="submit" value="Остановить карусель!" onclick="sliderOff()" id="sliderOff" disabled>
+			</div>
+	</body>
 			
 8. 
 <script> 
