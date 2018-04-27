@@ -7,8 +7,12 @@
 			.wrapper{
 				text-align: center;
 			}
-			p {
-				font-size: 24px;
+			table  {
+				margin: 0 auto;
+			}
+			td, th {
+				height: 30px;
+				width: 100px;
 			}
 			input {
 				width: 200px;
@@ -16,45 +20,49 @@
 			
 		</style >
 	<script> 
-			function sliderOn(){
-				window.timerId = window.setInterval(sliderStart, 1000);
-				document.getElementById('sliderOn').disabled = true;
-				document.getElementById('sliderOff').disabled = false;
-			}
-			function sliderOff() {
-				window.clearInterval(window.timerId);
-				document.getElementById('sliderOn').disabled = false;
-				document.getElementById('sliderOff').disabled = true;
-			}
-			function sliderStart(){
-				var img1 = document.getElementById('img1');
-				var img2 = document.getElementById('img2');
-				var img3 = document.getElementById('img3');
-				var img4 = document.getElementById('img4');
-				var img5 = document.getElementById('img5');
-				var img6 = document.getElementById('img6');
-				var tmp = img1.src;
-				img1.src = img2.src;
-				img2.src = img3.src;
-				img3.src = img4.src;
-				img4.src = img5.src;
-				img5.src = img6.src;
-				img6.src = tmp;
+			function timeOn(){
+				window.timerId = window.setInterval(timeOn, 500);
+				var hours = document.getElementById('hours');
+				var minutes = document.getElementById('minutes');
+				var second = document.getElementById('seconds');
+				var timeNow = new Date();
+				var mdnt = new Date(timeNow.getFullYear(), timeNow.getMonth(), timeNow.getDate() + 1, 0, 0, 0);
+				var diff = Math.floor((mdnt - timeNow) / 1000);
+				var resthourse = Math.floor(diff/(60 * 60));
+				var restminutes = Math.floor((diff - resthourse * 60 * 60) / 60);
+				var restseconds = Math.floor(diff % 60);
+				hours.innerHTML = resthourse;
+				minutes.innerHTML = addZero(restminutes);
+				seconds.innerHTML = addZero(restseconds);
 				
+			}
+			function addZero(num){
+				if (num <= 9 ){
+				return '0' + num;
+				}
+				else {
+					return num;
+				}
 			}
 			
 		</script>
 		</head>
-	<body>
-	<div class="wrapper">
-			<img src="1.png" id="img1">
-			<img src="2.png" id="img2">
-			<img src="3.png" id="img3">
-			<img src="4.png" id="img4">
-			<img src="5.png" id="img5">
-			<img src="6.png" id="img6"><br><br>
-			<input type="submit" value="Запустить карусель!" onclick="sliderOn()" id="sliderOn">
-			<input type="submit" value="Остановить карусель!" onclick="sliderOff()" id="sliderOff" disabled>
-			</div>
+	<body onload="timeOn()">
+		<div class="wrapper">
+		<p>До полуночи осталось: </p>
+		<table border="1" cellpadding="0" cellspacing="0">
+			<tr> 
+				<th>Часы</th>
+				<th>Минуты</th>
+				<th>Секунды</th>
+			</tr>
+			
+			<tr> 
+				<td id="hours"></td>
+				<td id="minutes"></td>
+				<td id="seconds"></td>
+			</tr>
+		</table>
+		</div>
 	</body>
 </html>
