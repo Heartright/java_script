@@ -4,23 +4,24 @@
 		<meta charset="utf-8">
 		<title>Lesson_test</title>
 		<style>
-			
-			
 		</style >
-	<script> 
-		var elems = document.getElementsByTagName('img');
+		
+	</head>
+	<body>
+		<a href="http://google.com" title="">Первая ссылка</a><br>
+		<a href="http://ya.ru" title="">Вторая ссылка</a><br>
+		<a href="http://mail.ru" title="">Третья ссылка</a>
+<script> 
+		var elems = document.getElementsByTagName('a');
 			for (var i = 0; i < elems.length; i++) {
-			elems[i].onclick = func;
+			elems[i].addEventListener('mouseover', linkhref)
 			}
 
-			function func() {
-			alert(this.getAttribute('src'));
+			function linkhref() {
+				this.innerHTML = this.innerHTML + '(' + this.href + ')';
+				this.removeEventListener('mouseover', linkhref);
 		}
-	</script>
-		</head>
-		<body>
-		<img src="images/1.png">
-		<img src="images/2.png">
-		<img src="images/3.png">	
+	</script>		
 	</body>
 </html>
+

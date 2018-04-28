@@ -1,6 +1,10 @@
 Продвинутая работа с событиями в JavaScript
 
 1. Даны картинки. Привяжите к каждой картинке событие, чтобы по клику на картинку алертом выводился ее src.
+<body>
+		<img src="1.png">
+		<img src="2.png">
+		<img src="3.png">
 <script> 
 		var elems = document.getElementsByTagName('img');
 			for (var i = 0; i < elems.length; i++) {
@@ -10,129 +14,55 @@
 			function func() {
 			alert(this.getAttribute('src'));
 		}
-	</script>
-	<body>
-		<img src="images/1.png">
-		<img src="images/2.png">
-		<img src="images/3.png">	
+	</script>		
 	</body>
 
-2.
-<style>
-			.wrapper {
-				text-align: center;
-				
+2. Даны ссылки. Привяжите всем ссылкам событие - по наведению на ссылку в атрибут title запишется ее текст.
+<body>
+		<a href="#" title="">Первая ссылка</a><br>
+		<a href="#" title="">Вторая ссылка</a><br>
+		<a href="#" title="">Третья ссылка</a>
+<script> 
+		var elems = document.getElementsByTagName('a');
+			for (var i = 0; i < elems.length; i++) {
+			elems[i].addEventListener('mouseover', linkhref)
 			}
-			input {
-				width: 200px;
-			}
-			p {
-				font-size: 24px;
-			}
-			
-		</style >
-	<script> 
-			function stopTimer(){
-				document.getElementById('startTimer').disabled = false;
-				document.getElementById('stopTimer').disabled = true;
-				window.clearInterval(window.timerId);
-			}
-	
-			function timerStart(){
-				var elem = document.getElementById('timer');
-				document.getElementById('startTimer').disabled = true;
-				document.getElementById('stopTimer').disabled = false;
-				window.timerId = window.setTimeout(timerStart, 500);
-				elem.innerHTML = parseInt(elem.innerHTML) + 1;
-			}	
-		</script>
-	<body>
-	<div class="wrapper">
-		<p id="timer"> 0 </p>
-		<input type="submit" value="Запустить таймер!" onclick="timerStart()" id="startTimer">	
-		<input type="submit" value="Остановить таймер!" onclick="stopTimer()" id="stopTimer" disabled>
-			</div>
+
+			function linkhref() {
+				this.title = this.innerHTML;
+		}
+	</script>		
 	</body>
 
 3. 
-<style>
-			.wrapper {
-				text-align: center;
-				
+<body>
+		<a href="http://google.com" title="">Первая ссылка</a><br>
+		<a href="http://ya.ru" title="">Вторая ссылка</a><br>
+		<a href="http://mail.ru" title="">Третья ссылка</a>
+<script> 
+		var elems = document.getElementsByTagName('a');
+			for (var i = 0; i < elems.length; i++) {
+			elems[i].addEventListener('mouseover', linkhref);
 			}
-			p {
-				font-size: 40px;
-				margin: 0;
-			}
-		</style >
-	<script> 
-			function timeNow(){
-				var time = document.getElementById('time');
-				var date = new Date();
-				time.innerHTML = numZero(date.getHours()) + ':' + numZero(date.getMinutes()) + ':' + numZero(date.getSeconds()); 
-				window.timerId = window.setInterval(timeNow, 500);
-			}
-			function numZero(num){
-				if (num <= 9) {
-					return '0' + num;
-				}
-				else {
-					return num;
-				}
-			
-			}
-		</script>
-	<body>
-	<div class="wrapper">
-		<p id="time"> 00:00:00 </p>
-			</div>
-	</body>
+
+			function linkhref() {
+				this.innerHTML = this.innerHTML + '(' + this.href + ')';
+		}
 4.
+<body>
+		<a href="http://google.com" title="">Первая ссылка</a><br>
+		<a href="http://ya.ru" title="">Вторая ссылка</a><br>
+		<a href="http://mail.ru" title="">Третья ссылка</a>
+<script> 
+		var elems = document.getElementsByTagName('a');
+			for (var i = 0; i < elems.length; i++) {
+			elems[i].addEventListener('mouseover', linkhref)
+			}
 
-	<style>
-			.wrapper {
-				text-align: center;
-
-			}
-			
-			#timestart{
-				font-size: 24px;
-			}
-			
-			input {
-				width: 200px;
-			}
-		</style >
-	<script> 
-
-			function timeStart(){
-				window.timerId = window.setInterval(counter, 300);
-				document.getElementById('start').disabled = true;
-			}
-			function timeOff(){
-				window.clearInterval(window.timerId);
-			}
-			
-			function counter(){
-				var timestart = document.getElementById('timestart')
-				var count = parseInt(timestart.innerHTML) - 1;
-				timestart.innerHTML = count;
-				if (count == 0) {
-					timeOff();
-				var timeoff = document.getElementById('timeoff');
-				timeoff.innerHTML = 'Обратный отсчет завершен.';
-				}
-			
-			}
-			
-		</script>
-	<body onload="timeNow()">
-	<div class="wrapper">
-		<p id="timestart"> 10 </p>
-		<p id="timeoff"></p>
-		<input type="submit" value="Запустите таймер!" onclick="timeStart()" id="start">
-			</div>
-	</body>
+			function linkhref() {
+				this.innerHTML = this.innerHTML + '(' + this.href + ')';
+				this.removeEventListener('mouseover', linkhref);
+		}
 
 5. 
 	<style>

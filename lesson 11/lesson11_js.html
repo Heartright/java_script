@@ -3,20 +3,23 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Lesson9_test</title>
-		<table>
 		<script> 
-		var str = '';
-		for(var i = 1; i <= 5; i++){
-			str += 'xx';
-			document.write(str + '<br>');
-		}
-		
+			var elems = document.getElementsByTagName('input');
+for (var i = 0; i < elems.length; i++) {
+	elems[i].onclick = func;
+}
+
+function func() {
+	alert(this.value); //изменение только здесь
+}
 		</script>
-		<table>
 	</head>
 	<body>
-		
+		<input type="submit" value="1">
+<input type="submit" value="2">
+<input type="submit" value="3">
+<input type="submit" value="4">
+<input type="submit" value="5">
 	</body>
 			
-	</body>
 </html>
