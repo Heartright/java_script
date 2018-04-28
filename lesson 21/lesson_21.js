@@ -1,34 +1,20 @@
-Задачи на работу с таймерами в JavaScript
+Продвинутая работа с событиями в JavaScript
 
-1. 	
-<style>
-			.wrapper {
-				text-align: center;
-				
+1. Даны картинки. Привяжите к каждой картинке событие, чтобы по клику на картинку алертом выводился ее src.
+<script> 
+		var elems = document.getElementsByTagName('img');
+			for (var i = 0; i < elems.length; i++) {
+			elems[i].onclick = func;
 			}
-			input {
-				width: 200px;
-			}
-			p {
-				font-size: 24px;
-			}
-			
-		</style >
-	<script> 
-	
-			function timerClick(){
-				var elem = document.getElementById('timer');
-				elem.innerHTML = parseInt(elem.innerHTML) + 1;
-				
-				window.setTimeout(timerClick, 1000);
-			}	
-			
-		</script>
+
+			function func() {
+			alert(this.getAttribute('src'));
+		}
+	</script>
 	<body>
-	<div class="wrapper">
-		<p id="timer"> 0 </p>
-		<input type="submit" value="Нажмите на меня!" onclick="timerClick()">	
-			</div>
+		<img src="images/1.png">
+		<img src="images/2.png">
+		<img src="images/3.png">	
 	</body>
 
 2.
