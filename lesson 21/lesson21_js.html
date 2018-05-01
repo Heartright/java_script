@@ -4,23 +4,36 @@
 		<meta charset="utf-8">
 		<title>Lesson_test</title>
 		<style>
+			div {
+			border: 2px solid black;
+			width: 100px;
+			height 100px;
+			margin-top: 10px;
+		}
 		</style >
-		
+	
 	</head>
 	<body>
-		<a href="http://google.com" title="">Первая ссылка</a><br>
-		<a href="http://ya.ru" title="">Вторая ссылка</a><br>
-		<a href="http://mail.ru" title="">Третья ссылка</a>
+		<div>Text 1</div>
+		<div>Text 2</div>
+		<div>Text 3</div>
 <script> 
-		var elems = document.getElementsByTagName('a');
+			var elems = document.getElementsByTagName('div');
 			for (var i = 0; i < elems.length; i++) {
-			elems[i].addEventListener('mouseover', linkhref)
+			elems[i].addEventListener('click', clickRed);
 			}
-
-			function linkhref() {
-				this.innerHTML = this.innerHTML + '(' + this.href + ')';
-				this.removeEventListener('mouseover', linkhref);
-		}
+			
+			function clickGreen() {
+				this.style.background = 'green';
+				this.removeEventListener('click', clickGreen);
+				this.addEventListener('click', clickRed);
+			}
+			function clickRed() {
+				this.style.background = 'red';
+				this.removeEventListener('click', clickRed);
+				this.addEventListener('click', clickGreen);
+			}
+			
 	</script>		
 	</body>
 </html>

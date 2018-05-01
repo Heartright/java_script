@@ -25,7 +25,7 @@
 <script> 
 		var elems = document.getElementsByTagName('a');
 			for (var i = 0; i < elems.length; i++) {
-			elems[i].addEventListener('mouseover', linkhref)
+			elems[i].addEventListener('mouseover', linkhref);
 			}
 
 			function linkhref() {
@@ -56,7 +56,7 @@
 <script> 
 		var elems = document.getElementsByTagName('a');
 			for (var i = 0; i < elems.length; i++) {
-			elems[i].addEventListener('mouseover', linkhref)
+			elems[i].addEventListener('mouseover', linkhref);
 			}
 
 			function linkhref() {
@@ -65,191 +65,108 @@
 		}
 
 5. 
-	<style>
-			.wrapper {
-				text-align: center;
+		<body>
+		<input type="text" value="input1">
+		<input type="text" value="input2">
+		<input type="text" value="input3">
+		<p id="test"></p>
+<script> 
+		var elems = document.getElementsByTagName('input');
+		var elems2 = document.getElementById('test');
+			for (var i = 0; i < elems.length; i++) {
+			elems[i].addEventListener('click', linkhref);
 			}
-		</style >
-	<script> 
-			function slider(){
-				window.timerId = window.setInterval(sliderStart, 1000)
-			}
+
+			function linkhref() {
+				elems2.innerHTML = this.value;
+		}
+	</script>	
 			
-			function sliderStart(){
-				if(window.number == undefined || window.number == 3){
-					window.number = 1;
-				}
-				else 
-					window.number = window.number + 1;
-					var img = document.getElementById('img');
-					img.src = window.number + '.png'
+6. 
+		var elems = document.getElementsByTagName('input');
+			for (var i = 0; i < elems.length; i++) {
+			elems[i].addEventListener('click', linkhref);
 			}
-			
-		</script>
-	<body onload="slider()">
-	<div class="wrapper">
-			<img src="1.png" id="img">
-			</div>
-	</body>
-			
-6. <style>
-			.wrapper{
-				text-align: center;
-			}
-			p {
-				font-size: 24px;
-			}
-			input {
-				width: 200px;
-			}
-			
-		</style >
-	<script> 
-			function slider(){
-				window.timerId = window.setInterval(sliderStart, 1000);
-				document.getElementById('slider').disabled = true;
-			}
-			function sliderStart(){
-				var img1 = document.getElementById('img1');
-				var img2 = document.getElementById('img2');
-				var img3 = document.getElementById('img3');
-				var tmp = img1.src;
-				img1.src = img2.src;
-				img2.src = img3.src;
-				img3.src = tmp;
-			}
-		</script>
-	<body>
-	<div class="wrapper">
-			<img src="1.png" id="img1">
-			<img src="2.png" id="img2">
-			<img src="3.png" id="img3"><br><br>
-			<input type="submit" value="Запустить карусель!" onclick="slider()" id="slider">
-			</div>
-	</body>
+
+			function linkhref() {
+				alert(this.value);
+				this.removeEventListener('click', linkhref )
+		}
 			
 7.
-	<style>
-			.wrapper{
-				text-align: center;
+<body>
+		<p>2</p>
+		<p>3</p>
+		<p>4</p>
+<script> 
+		var elems = document.getElementsByTagName('p');
+			for (var i = 0; i < elems.length; i++) {
+			elems[i].addEventListener('click', linkhref);
 			}
-			p {
-				font-size: 24px;
-			}
-			input {
-				width: 200px;
-			}
-			
-		</style >
-	<script> 
-			function sliderOn(){
-				window.timerId = window.setInterval(sliderStart, 1000);
-				document.getElementById('sliderOn').disabled = true;
-				document.getElementById('sliderOff').disabled = false;
-			}
-			function sliderOff() {
-				window.clearInterval(window.timerId);
-				document.getElementById('sliderOn').disabled = false;
-				document.getElementById('sliderOff').disabled = true;
-			}
-			function sliderStart(){
-				var img1 = document.getElementById('img1');
-				var img2 = document.getElementById('img2');
-				var img3 = document.getElementById('img3');
-				var img4 = document.getElementById('img4');
-				var img5 = document.getElementById('img5');
-				var img6 = document.getElementById('img6');
-				var tmp = img1.src;
-				img1.src = img2.src;
-				img2.src = img3.src;
-				img3.src = img4.src;
-				img4.src = img5.src;
-				img5.src = img6.src;
-				img6.src = tmp;	
-			}
-		</script>
-	<body>
-	<div class="wrapper">
-			<img src="1.png" id="img1">
-			<img src="2.png" id="img2">
-			<img src="3.png" id="img3">
-			<img src="4.png" id="img4">
-			<img src="5.png" id="img5">
-			<img src="6.png" id="img6"><br><br>
-			<input type="submit" value="Запустить карусель!" onclick="sliderOn()" id="sliderOn">
-			<input type="submit" value="Остановить карусель!" onclick="sliderOff()" id="sliderOff" disabled>
-			</div>
+
+			function linkhref() {
+				this.innerHTML = this.innerHTML * this.innerHTML;
+		}
+	</script>		
 	</body>
 			
 8. 
-	<style>
-			.wrapper{
-				text-align: center;
+	<body>
+		<input type="text" data-length="2">
+		<input type="text" data-length="5">
+		<input type="text" data-length="3">
+<script> 
+		var elems = document.getElementsByTagName('input');
+			for (var i = 0; i < elems.length; i++) {
+			elems[i].addEventListener('blur', linkhref);
 			}
-			table  {
-				margin: 0 auto;
-			}
-			td, th {
-				height: 30px;
-				width: 100px;
-			}
-			input {
-				width: 200px;
-			}
-			
-		</style >
-	<script> 
-			function timeOn(){
-				window.timerId = window.setInterval(timeOn, 500);
-				var hours = document.getElementById('hours');
-				var minutes = document.getElementById('minutes');
-				var second = document.getElementById('seconds');
-				var timeNow = new Date();
-				var mdnt = new Date(timeNow.getFullYear(), timeNow.getMonth(), timeNow.getDate() + 1, 0, 0, 0);
-				var diff = Math.floor((mdnt - timeNow) / 1000);
-				var resthourse = Math.floor(diff/(60 * 60));
-				var restminutes = Math.floor((diff - resthourse * 60 * 60) / 60);
-				var restseconds = Math.floor(diff % 60);
-				hours.innerHTML = resthourse;
-				minutes.innerHTML = addZero(restminutes);
-				seconds.innerHTML = addZero(restseconds);
-			}
-			function addZero(num){
-				if (num <= 9 ){
-				return '0' + num;
-				}
+
+			function linkhref() {
+				var corLength = this.dataset.length;
+				var inputLength = this.value.length;
+				if (corLength == inputLength ){
+					this.style.borderColor = 'green';
+				} 
 				else {
-					return num;
-				}
-			}
-		</script>
-	<body onload="timeOn()">
-		<div class="wrapper">
-		<p>До полуночи осталось: </p>
-		<table border="1" cellpadding="0" cellspacing="0">
-			<tr> 
-				<th>Часы</th>
-				<th>Минуты</th>
-				<th>Секунды</th>
-			</tr>
-			
-			<tr> 
-				<td id="hours"></td>
-				<td id="minutes"></td>
-				<td id="seconds"></td>
-			</tr>
-		</table>
-		</div>
+					this.style.borderColor = 'red';
+				}	
+		}
+	</script>		
 	</body>
 9. 
-var time = Date.parse('1988-03-01T00:00:00');
+<style>
+			div {
+			border: 2px solid black;
+			width: 100px;
+			height 100px;
+			margin-top: 10px;
+		}
+		</style >
+	
+	</head>
+	<body>
+		<div>Text 1</div>
+		<div>Text 2</div>
+		<div>Text 3</div>
+<script> 
+			var elems = document.getElementsByTagName('div');
+			for (var i = 0; i < elems.length; i++) {
+			elems[i].addEventListener('click', clickRed);
+			}
 			
-			var date = new Date();
-			var now = date.getTime();
+			function clickGreen() {
+				this.style.background = 'green';
+				this.removeEventListener('click', clickGreen);
+				this.addEventListener('click', clickRed);
+			}
+			function clickRed() {
+				this.style.background = 'red';
+				this.removeEventListener('click', clickRed);
+				this.addEventListener('click', clickGreen);
+			}
 			
-			var result = now - time;
-			result = result / (1000 * 60 * 60);
-			document.write(result);
+	</script>		
+	</body>
 			
 
 10. 
