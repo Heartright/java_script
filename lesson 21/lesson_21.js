@@ -34,7 +34,7 @@
 	</script>		
 	</body>
 
-3. 
+3. Привяжите всем ссылкам событие - по наведению на ссылку в конец ее текста дописывается ее href в круглых скобках.
 <body>
 		<a href="http://google.com" title="">Первая ссылка</a><br>
 		<a href="http://ya.ru" title="">Вторая ссылка</a><br>
@@ -48,7 +48,7 @@
 			function linkhref() {
 				this.innerHTML = this.innerHTML + '(' + this.href + ')';
 		}
-4.
+4. Дополните предыдущую задачу: после первого наведению на ссылку следует отвязать от нее событие, которое добавляет href в конец текста. 
 <body>
 		<a href="http://google.com" title="">Первая ссылка</a><br>
 		<a href="http://ya.ru" title="">Вторая ссылка</a><br>
@@ -64,7 +64,7 @@
 				this.removeEventListener('mouseover', linkhref);
 		}
 
-5. 
+5. Привяжите всем инпутам следующее событие - по потери фокуса каждый инпут выводит свое value в абзац с id="test".
 		<body>
 		<input type="text" value="input1">
 		<input type="text" value="input2">
@@ -82,7 +82,7 @@
 		}
 	</script>	
 			
-6. 
+6. Для всех инпутов сделайте так, чтобы они выводили свой value алертом при нажатии на любой из них, но только по первому нажатию. Повторное нажатие на инпут не должно вызывать реакции.
 		var elems = document.getElementsByTagName('input');
 			for (var i = 0; i < elems.length; i++) {
 			elems[i].addEventListener('click', linkhref);
@@ -93,7 +93,7 @@
 				this.removeEventListener('click', linkhref )
 		}
 			
-7.
+7. Даны абзацы с числами. По нажатию на абзац в нем должен появится квадрат числа, которое он содержит.
 <body>
 		<p>2</p>
 		<p>3</p>
@@ -110,7 +110,7 @@
 	</script>		
 	</body>
 			
-8. 
+8. Даны инпуты. Сделайте так, чтобы все инпуты по потери фокуса проверяли свое содержимое на правильное количество символов. Сколько символов должно быть в инпуте, указывается в атрибуте data-length. Если вбито правильное количество, то граница инпута становится зеленой, если неправильное - красной.
 	<body>
 		<input type="text" data-length="2">
 		<input type="text" data-length="5">
@@ -133,7 +133,7 @@
 		}
 	</script>		
 	</body>
-9. 
+9. Даны дивы. По первому нажатию на каждый див он красится красным фоном, по второму красится обратно и так далее каждый клик происходит чередование фона. Сделайте так, чтобы было две функции: одна красит в красный цвет, другая в зеленый и они сменяли друг друга через removeEventListener.
 <style>
 			div {
 			border: 2px solid black;
@@ -167,92 +167,3 @@
 			
 	</script>		
 	</body>
-			
-
-10. 
-		var date = new Date();
-		var now = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0); 		
-		var result = Math.floor((date.getTime() - now.getTime()) / 1000);
-		document.write(result);
-11.
-		var date = new Date();
-		var end = new Date(date.getFullYear(), date.getMonth(), date.getDay(), 23,59,59);		
-		document.write(Math.round((date - end) / 1000));
-	
-	
-12. 
-	
-	<script> 
-			function birthDay(elem){
-				var inputDay = elem.value ;
-				var date = new Date();
-				var formOut = Date.parse(inputDay)
-				var dateNow = Date.parse(String(date.getFullYear()) + '-' + (date.getMonth() + 1) + '-' + date.getDate());
-				var res = (formOut - dateNow) / 86400000 ;
-				document.getElementById('output').innerHTML = Math.floor(res);
-				
-			}
-		</script>
-		</head>
-	<body>
-		<input type="text" style="width: 500px;" placeholder="Введите дату своего рождения в формате 2014-12-31"  onblur="birthDay(this)">
-		<p id="output"> </p>
-	</body>
-	
-13
-<script> 
-			function textClick(elem1){
-				elem1.disabled = true;
-				elem1.value = 'О на меня больше нельзя нажать!';
-				var elem2 = document.getElementById('text');
-				elem2.innerHTML = 'Привет мир!';
-				elem2.style.color = 'red';
-			}
-		</script>
-	<body>
-		<p id="text">При нажатии на кнопку текст в абзаце поменяется.</p>
-		<input style="width: 400px;" type="submit" value="Нажми на меня!" onclick="textClick(this)">
-	</body>
-	
-14
-<script> 
-			function textClick(){
-			var elem = document.getElementsByClassName('text');
-				for(var i = 0; i < elem.length; i++ ){
-					elem[i].innerHTML = i; 
-				}
-			}
-		</script>
-	<body>
-		<p class="text">Абзац с текстом.</p>
-		<p class="text">Абзац с текстом.</p>
-		<p class="text">Абзац с текстом.</p>
-		<p class="text">Абзац с текстом.</p>
-		<p class="text">Абзац с текстом.</p>
-		<p class="text">Абзац с текстом.</p>
-		<p class="text">Абзац с текстом.</p>
-		<p class="text">Абзац с текстом.</p>
-		<input style="width: 200px;" type="submit" value="Нажмите на меня!" onclick="textClick(this)">
-	</body>
-	
-15 
-	<script> 
-			function textClick(){
-			var elem = document.getElementsByClassName('text');
-				for(var i = 0; i < elem.length; i++ ){
-					elem[i].innerHTML = i + '. ' + elem[i].innerHTML; 
-				}
-			}
-		</script>
-	<body>
-		<p class="text">Абзац с текстом.</p>
-		<p class="text">Абзац с текстом.</p>
-		<p class="text">Абзац с текстом.</p>
-		<p class="text">Абзац с текстом.</p>
-		<p class="text">Абзац с текстом.</p>
-		<p class="text">Абзац с текстом.</p>
-		<p class="text">Абзац с текстом.</p>
-		<p class="text">Абзац с текстом.</p>
-		<input style="width: 200px;" type="submit" value="Нажмите на меня!" onclick="textClick(this)">
-	</body>
-	

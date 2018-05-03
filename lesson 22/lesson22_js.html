@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Lesson_test</title>
+		<style>
+		</style >
+	</head>
+	<body>
+		<div id="elem">
+			<p>Первый элемент</p>
+			<p>Второй элемент</p>
+			<p>Третий элемент</p>
+		</div>
+		
+		<script>
+			var elem = document.getElementById('elem');
+			for(i = 0; i < elem.children.length; i++){
+				elem.children[i].innerHTML += '!';
+			}
+		</script>	
+	</body>
+</html>
+
+<!-- var alertElem = elem.classList.contains('www'); -->
+			<!-- alert(alertElem);  -->
