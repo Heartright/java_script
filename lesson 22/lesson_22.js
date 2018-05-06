@@ -277,3 +277,176 @@
 			}
 		</script>	
 	</body>
+	
+22. Дан элемент #elem. Найдите его соседа сверху и добавьте ему в конец текст '!'.
+<body>
+		<div>
+			<p>Первый элемент</p>
+			<p id="elem">Второй элемент</p>
+			<p>Третий элемент</p>
+		</div>
+		
+		<script>
+			var elem = document.getElementById('elem');
+			var elemsub = elem.previousElementSibling;
+			elemsub.innerHTML = elemsub.innerHTML + '!';
+		</script>	
+	</body>
+	
+23. Дан элемент #elem. Найдите его соседа снизу и добавьте ему в конец текст '!'
+<body>
+		<div>
+			<p>Первый элемент</p>
+			<p id="elem">Второй элемент</p>
+			<p>Третий элемент</p>
+		</div>
+		
+		<script>
+			var elem = document.getElementById('elem');
+			var elemsub = elem.nextElementSibling;
+			elemsub.innerHTML = elemsub.innerHTML + '!';
+		</script>	
+	</body>
+	
+24. Дан элемент #elem. Найдите его соседа снизу его соседа снизу (следующий элемент за соседним) и добавьте ему в конец текст '!'.
+
+<body>
+		<div>
+			<p id="elem">Первый элемент</p>
+			<p>Второй элемент</p>
+			<p>Третий элемент</p>
+		</div>
+		
+		<script>
+			var elem = document.getElementById('elem');
+			var elemsub = elem.nextElementSibling.nextElementSibling;
+			elemsub.innerHTML = elemsub.innerHTML + '!';
+		</script>	
+	</body>
+	
+25. Дан элемент #elem. Найдите его родителя и покрасьте его в красный цвет.
+
+<body>
+		<div id="parent"> parent
+			<p id="elem">Первый элемент</p>
+			<p>Второй элемент</p>
+			<p>Третий элемент</p>
+		</div>
+		
+		<script>
+				var elem = document.getElementById('elem');
+				var parent = elem.parentElement;
+				parent.style.color = 'red';
+		</script>	
+	</body>
+	
+26. Дан элемент #elem. Найдите родителя его родителя и покрасьте его в красный цвет.
+
+<body>
+		<div id="parent"> parent
+			<p id="elem">Первый элемент</p>
+			<p>Второй элемент</p>
+			<p>Третий элемент</p>
+		</div>
+		
+		<script>
+				var elem = document.getElementById('elem');
+				var parent = elem.parentElement.parentElement;
+				parent.style.color = 'red';
+		</script>	
+	</body>
+	
+27. Дан элемент #parent, внутри него дан элемент #child. Дана кнопка. По нажатию на эту кнопку удалите элемент #child.
+
+<body>
+		<div id="parent"> parent
+			<p id="child">Первый элемент</p>
+			<p>Второй элемент</p>
+			<p>Третий элемент</p>
+		</div>
+		<input type="submit" id="click">
+		<script>
+				var elem = document.getElementById('click');
+				elem.addEventListener('click', clickRemove);
+				
+				function clickRemove(){
+					var parent = document.getElementById('parent');
+					var child = document.getElementById('child');
+					parent.removeChild(child); 
+				}
+		</script>	
+	</body>
+	
+28. Дан ol. По нажатию на кнопку получите его последнего потомка и удалите его.
+
+<body>
+		<ol id="parent">
+			<li>Первый элемент</li>
+			<li>Второй элемент</li>
+			<li>Третий элемент</li>
+		</ol>
+		<input type="submit" id="click">
+		<script>
+				var elem = document.getElementById('click');
+				elem.addEventListener('click', clickRemove);
+				
+				function clickRemove(){
+					var parent = document.getElementById('parent');
+					parent.removeChild(parent.lastElementChild); 
+				}
+		</script>	
+	</body>
+
+29.  Дан элемент. Сделайте так, чтобы по нажатию по нему этот элемент удалялся.
+
+<body>
+		<ol id="elem">Список
+			<li>Первый элемент</li>
+			<li>Второй элемент</li>
+			<li>Третий элемент</li>
+		</ol>
+		<script>
+				var elem = document.getElementById('elem');
+				elem.addEventListener('click', clickRemove);
+				
+				function clickRemove(){
+					this.parentElement.removeChild(this);
+				}
+		</script>	
+	</body>
+	
+30. Дан ol, а внутри него li. Сделайте так, чтобы по нажатию на любую li эта li удалялась.
+
+<body>
+		<ol>Список
+			<li>Первый элемент</li>
+			<li>Второй элемент</li>
+			<li>Третий элемент</li>
+		</ol>
+		<script>
+				var elem = document.getElementsByTagName('li');
+				for(var i = 0; i < elem.length; i++ ){
+					elem[i].addEventListener('click', clickRemove);
+				}
+				function clickRemove(){
+					this.parentElement.removeChild(this);
+				}
+		</script>	
+	</body>
+31. Дан инпут. Дана кнопка. По нажатию на кнопку клонируйте этот инпут.
+
+<body>
+		<input type="submit" value="clone" id="buttonClone">
+		<input type="text" id="input">
+		<script>
+				var buttom = document.getElementById('buttonClone');
+				var input = document.getElementById('input');
+				
+				buttom.addEventListener('click', funcClone);
+				
+				function funcClone(){
+					var clone = input.cloneNode(true);
+					input.parentElement.appendChild(clone);
+				}
+		</script>	
+	</body>

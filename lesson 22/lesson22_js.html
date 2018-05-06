@@ -7,17 +7,18 @@
 		</style >
 	</head>
 	<body>
-		<div id="elem">
-			<p>Первый элемент</p>
-			<p>Второй элемент</p>
-			<p>Третий элемент</p>
-		</div>
-		
+		<input type="submit" value="clone" id="buttonClone">
+		<input type="text" id="input">
 		<script>
-			var elem = document.getElementById('elem');
-			for(i = 0; i < elem.children.length; i++){
-				elem.children[i].innerHTML += '!';
-			}
+				var buttom = document.getElementById('buttonClone');
+				var input = document.getElementById('input');
+				
+				buttom.addEventListener('click', funcClone);
+				
+				function funcClone(){
+					var clone = input.cloneNode(true);
+					input.parentElement.appendChild(clone);
+				}
 		</script>	
 	</body>
 </html>
