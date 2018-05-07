@@ -5,21 +5,21 @@
 		<title>Lesson_test</title>
 		<style>
 		</style >
+			
 	</head>
 	<body>
-		<input type="submit" value="clone" id="buttonClone">
-		<input type="text" id="input">
-		<script>
-				var buttom = document.getElementById('buttonClone');
-				var input = document.getElementById('input');
-				
-				buttom.addEventListener('click', funcClone);
-				
-				function funcClone(){
-					var clone = input.cloneNode(true);
-					input.parentElement.appendChild(clone);
-				}
-		</script>	
+		<input type="submit" value="+" id="addInput">
+		<input type="text">
+	<script>
+			 var elem = document.getElementById('addInput');
+			 elem.addEventListener('click', addInput);
+			 
+			 function addInput(){
+				var parent = elem.parentElement;
+				var newInput = document.createElement('input');
+				parent.appendChild(newInput);
+			 }
+		</script>
 	</body>
 </html>
 

@@ -450,3 +450,36 @@
 				}
 		</script>	
 	</body>
+	
+32. Дан массив. Создайте ul через createElement, затем вставьте каждый элемент этого массива в отдельную li внутри этой ul, затем вставьте эту ul в конец body.
+<body>
+	
+	<script>
+			 var mass = [1, 2, 3, 4, 5];
+			 
+			 var ul = document.createElement('ul');
+			 for (var i = 0; i < mass.length; i++){
+				var li = document.createElement('li');
+				li.innerHTML = mass[i];
+				ul.appendChild(li);
+			 }
+				document.body.appendChild(ul);
+		</script>
+	</body>
+33. Дан инпут. Рядом с ним находится кнопочка "+". По нажатию на эту кнопку под нашим инпутом должен появится еще один пустой инпут.
+
+	<body>
+		<input type="submit" value="+" id="addInput">
+		<input type="text">
+	<script>
+			 var elem = document.getElementById('addInput');
+			 elem.addEventListener('click', addInput);
+			 
+			 function addInput(){
+				var parent = elem.parentElement;
+				var newInput = document.createElement('input');
+				parent.appendChild(newInput);
+			 }
+		</script>
+	</body>
+	
