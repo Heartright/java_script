@@ -8,13 +8,16 @@
 			
 	</head>
 	<body>
-		<input type="text" id="input">
+		<div>
+			<input type="text">
+			<input type="submit" id="clickButton">
+		</div>
 	<script>
-			var elem = document.getElementById('input');
-			elem.addEventListener('blur', )
+			var elem = document.getElementById('clickButton');
+			elem.addEventListener('click', clickClone);
 			
-			function newInput(){
-				
+			function clickClone(){
+				this.parentElement.style.display = 'none';
 			}
 		</script>
 	</body>

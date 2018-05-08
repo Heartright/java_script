@@ -483,3 +483,39 @@
 		</script>
 	</body>
 34. Дан инпут. В него вводится число. По потери фокуса сделайте так, чтобы каждая цифра вставилась в новый инпут. Инпутов для цифр изначально не существует, они должны создаться в процессе работы скрипта
+
+<body>
+		<input type="text" id="input">
+	<script>
+			var elem = document.getElementById('input');
+			elem.addEventListener('blur', newInput);
+			
+			function newInput(){
+				var mass = this.value.split('');
+				var parent = input.parentElement;
+				
+				for (var i = 0; i < mass.length; i++ ){
+					var newInput = document.createElement('input');
+					newInput.value = mass[i];
+					parent.appendChild(newInput);
+				}
+			}
+		</script>
+	</body>
+
+35. Дана кнопка. Сделайте так, чтобы по нажатию на эту кнопку, скрывался родитель этой кнопки.
+
+<body>
+		<div>
+			<input type="text">
+			<input type="submit" id="clickButton">
+		</div>
+	<script>
+			var elem = document.getElementById('clickButton');
+			elem.addEventListener('click', clickClone);
+			
+			function clickClone(){
+				this.parentElement.style.display = 'none';
+			}
+		</script>
+	</body>
