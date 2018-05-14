@@ -1,79 +1,228 @@
-Задачи на продвинутую работу с DOM на JavaScript
+Задачи на работу с метриками на JavaScript
 
-1. Дан элемент #elem. Добавьте ему класс www.
+1. Дан элемент #elem с границами. По нажатию на кнопку выведите толщину его верхней границы.
+	<style>
+			#elem {
+				width: 150px;
+				height: 150px;
+				padding: 30px;
+				border: 10px solid #BCBCBC;
+				overflow: auto;	
+			}
+			
+			input {
+				margin-top: 20px;
+			}
+		</style >
+	</head>
 	<body>
-			<p id="elem">Text 1</p>
-		<script> 
+	
+		<div id="elem">
+			Lorem ipsum dolorsit amet consectetur adipiscing elit. Sed viverra mollis lorem, fringilla dapibus nisi commodo interdum. Vivamus in turpis quis purus dapibus aliquam id nec velit. In at aliquet sem, a rutrum neque. Vestibulum posuere lobortis accumsan. Etiam non tincidunt erat, vel condimentum turpis.
+		</div>
+		<input type="submit" id="infoButton" value="нажми на меня">
+
+		<script>
 			var elem = document.getElementById('elem');
-			elem.classList.add('www');
-		</script>	
+			var click = document.getElementById('infoButton');
+			click.addEventListener('click', infoClick);
+			
+			function infoClick(){
+				alert(elem.clientTop);
+			}
+		</script>
+		
 	</body>
 
-2. Дан элемент #elem. Удалите у него класс www.
+2. Дан элемент #elem с границами. По нажатию на кнопку выведите толщину его левой границы.
+	<style>
+			#elem {
+				width: 150px;
+				height: 150px;
+				padding: 30px;
+				border: 10px solid #BCBCBC;
+				overflow: auto;	
+			}
+			input {
+				margin-top: 20px;
+			}
+		</style >
+	</head>
 	<body>
-			<p id="elem" class="www">Text 1</p>
-		<script> 
+		<div id="elem">
+			Lorem ipsum dolorsit amet consectetur adipiscing elit. Sed viverra mollis lorem, fringilla dapibus nisi commodo interdum. Vivamus in turpis quis purus dapibus aliquam id nec velit. In at aliquet sem, a rutrum neque. Vestibulum posuere lobortis accumsan. Etiam non tincidunt erat, vel condimentum turpis.
+		</div>
+		<input type="submit" id="infoButton" value="нажми на меня">
+
+		<script>
 			var elem = document.getElementById('elem');
-			elem.classList.remove('www');
-		</script>	
+			var click = document.getElementById('infoButton');
+			click.addEventListener('click', infoClick);
+			
+			function infoClick(){
+				alert(elem.clientLeft);
+			}
+		</script>
 	</body>
 
-3. Дан элемент #elem. Проверьте наличие у него класса www.
+3. Дан элемент #elem с границами. По нажатию на кнопку выведите его полную ширину с учетом границы и padding.
 
+	<style>
+			#elem {
+				width: 150px;
+				height: 150px;
+				padding: 30px;
+				border: 10px solid #BCBCBC;
+				overflow: auto;	
+			}
+			input {
+				margin-top: 20px;
+			}
+		</style >
+	</head>
 	<body>
-			<p id="elem" class="www">Text 1</p>
-		<script> 
+		<div id="elem">
+			Lorem ipsum dolorsit amet consectetur adipiscing elit. Sed viverra mollis lorem, fringilla dapibus nisi commodo interdum. Vivamus in turpis quis purus dapibus aliquam id nec velit. In at aliquet sem, a rutrum neque. Vestibulum posuere lobortis accumsan. Etiam non tincidunt erat, vel condimentum turpis.
+		</div>
+		<input type="submit" id="infoButton" value="нажми на меня">
+
+		<script>
 			var elem = document.getElementById('elem');
-			var alertElem = elem.classList.contains('www');
-			alert(alertElem);  
+			var click = document.getElementById('infoButton');
+			click.addEventListener('click', infoClick);
+			
+			function infoClick(){
+				alert(elem.offsetWidth);
+			}
 		</script>
 	</body>
 	
-4. Дан элемент #elem. Добавьте ему класс www, если его нет и удалите - если есть.
+4. Дан элемент #elem с границами. По нажатию на кнопку выведите его полную высоту с учетом границы и padding.
+	
+	<style>
+			#elem {
+				width: 150px;
+				height: 150px;
+				padding: 30px;
+				border: 10px solid #BCBCBC;
+				overflow: auto;	
+			}
+			input {
+				margin-top: 20px;
+			}
+		</style >
+	</head>
 	<body>
-		<p id="elem" class="www">Text 1</p>
-		
-		<script> 
+		<div id="elem">
+			Lorem ipsum dolorsit amet consectetur adipiscing elit. Sed viverra mollis lorem, fringilla dapibus nisi commodo interdum. Vivamus in turpis quis purus dapibus aliquam id nec velit. In at aliquet sem, a rutrum neque. Vestibulum posuere lobortis accumsan. Etiam non tincidunt erat, vel condimentum turpis.
+		</div>
+		<input type="submit" id="infoButton" value="нажми на меня">
+
+		<script>
 			var elem = document.getElementById('elem');
-			elem.classList.toggle('www');
+			var click = document.getElementById('infoButton');
+			click.addEventListener('click', infoClick);
 			
-		</script>	
+			function infoClick(){
+				alert(elem.offsetHeight);
+			}
+		</script>
 	</body>
 
-5. Дан элемент #elem. Узнайте количество его классов.
+5. Дан элемент #elem с границами. По нажатию на кнопку выведите его полную ширину без учета границы, но с padding.
+	
+	<style>
+			#elem {
+				width: 150px;
+				height: 150px;
+				padding: 30px;
+				border: 10px solid #BCBCBC;
+				overflow: auto;	
+			}
+			input {
+				margin-top: 20px;
+			}
+		</style >
+	</head>
 	<body>
-		<p id="elem" class="www yyy">Text 1</p>
-		
-		<script> 
+		<div id="elem">
+			Lorem ipsum dolorsit amet consectetur adipiscing elit. Sed viverra mollis lorem, fringilla dapibus nisi commodo interdum. Vivamus in turpis quis purus dapibus aliquam id nec velit. In at aliquet sem, a rutrum neque. Vestibulum posuere lobortis accumsan. Etiam non tincidunt erat, vel condimentum turpis.
+		</div>
+		<input type="submit" id="infoButton" value="нажми на меня">
+
+		<script>
 			var elem = document.getElementById('elem');
-			var length = elem.classList.length;
-			document.write(length);
+			var click = document.getElementById('infoButton');
+			click.addEventListener('click', infoClick);
 			
-		</script>	
+			function infoClick(){
+				alert(elem.clientWidth);
+			}
+		</script>
 	</body>
 			
-6. Дан элемент #elem. Выведите последовательно алертом его классы.
+6. Дан элемент #elem с границами. По нажатию на кнопку выведите его полную высоту без учета границы, но с padding.
+	
+	<style>
+			#elem {
+				width: 150px;
+				height: 150px;
+				padding: 30px;
+				border: 10px solid #BCBCBC;
+				overflow: auto;	
+			}
+			input {
+				margin-top: 20px;
+			}
+		</style >
+	</head>
 	<body>
-			<p id="elem" class="www yyy zzz">Классы:</p>
-		
-		<script> 
+		<div id="elem">
+			Lorem ipsum dolorsit amet consectetur adipiscing elit. Sed viverra mollis lorem, fringilla dapibus nisi commodo interdum. Vivamus in turpis quis purus dapibus aliquam id nec velit. In at aliquet sem, a rutrum neque. Vestibulum posuere lobortis accumsan. Etiam non tincidunt erat, vel condimentum turpis.
+		</div>
+		<input type="submit" id="infoButton" value="нажми на меня">
+
+		<script>
 			var elem = document.getElementById('elem');
-			var className = elem.classList;
+			var click = document.getElementById('infoButton');
+			click.addEventListener('click', infoClick);
 			
-			for(var i = 0; i < className.length; i++){
-				document.write(className[i] + '<br>');
-			}		
-		</script>	
+			function infoClick(){
+				alert(elem.clientHeight);
+			}
+		</script>
 	</body>
 			
-7. Дан элемент #elem. Сделайте его красного цвета, размером 30px, добавьте ему границу. Решите задачу с помощью свойства cssText.
-<body>
-		<p id="elem" class="www yyy zzz">Text 1</p>
-		
-		<script> 
+7. Дан элемент #elem. Получите его ширину и высоту, без учета границы и padding.
+
+<style>
+			#elem {
+				width: 150px;
+				height: 150px;
+				padding: 30px;
+				border: 10px solid #BCBCBC;
+				overflow: auto;	
+			}
+			input {
+				margin-top: 20px;
+			}
+		</style >
+	</head>
+	<body>
+		<div id="elem">
+			Lorem ipsum dolorsit amet consectetur adipiscing elit. Sed viverra mollis lorem, fringilla dapibus nisi commodo interdum. Vivamus in turpis quis purus dapibus aliquam id nec velit. In at aliquet sem, a rutrum neque. Vestibulum posuere lobortis accumsan. Etiam non tincidunt erat, vel condimentum turpis.
+		</div>
+		<input type="submit" id="infoButton" value="нажми на меня">
+
+		<script>
 			var elem = document.getElementById('elem');
-			elem.style.cssText = 'color: red; font-size: 30px; border: 1px solid red;'
-		</script>	
+			var click = document.getElementById('infoButton');
+			click.addEventListener('click', infoClick);
+			
+			function infoClick(){
+				alert(getComputedStyle(elem).height + getComputedStyle(elem).width);
+			}
+		</script>
 	</body>
 			
 8. Дан элемент #elem. По клику на него выведите название его тега.

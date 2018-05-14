@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Lesson_test</title>
+		<style>
+			#elem {
+				width: 150px;
+				height: 150px;
+				padding: 30px;
+				border: 10px solid #BCBCBC;
+				overflow: auto;	
+			}
+			input {
+				margin-top: 20px;
+			}
+		</style >
+	</head>
+	<body>
+		<div id="elem">
+			Lorem ipsum dolorsit amet consectetur adipiscing elit. Sed viverra mollis lorem, fringilla dapibus nisi commodo interdum. Vivamus in turpis quis purus dapibus aliquam id nec velit. In at aliquet sem, a rutrum neque. Vestibulum posuere lobortis accumsan. Etiam non tincidunt erat, vel condimentum turpis.
+		</div>
+		<input type="submit" id="infoButton" value="нажми на меня">
+
+		<script>
+			var elem = document.getElementById('elem');
+			var click = document.getElementById('infoButton');
+			click.addEventListener('click', infoClick);
+			
+			function infoClick(){
+				alert(getComputedStyle(elem).height + getComputedStyle(elem).width);
+			}
+		</script>
+	</body>
+</html>
+
+<!-- var alertElem = elem.classList.contains('www'); -->
+			<!-- alert(alertElem);  -->
