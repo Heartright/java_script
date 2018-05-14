@@ -548,17 +548,20 @@
 			}
 		</script>
 	
-22. Дан элемент #elem. Найдите его соседа сверху и добавьте ему в конец текст '!'.
+22. Дан элемент #elem. По клику на него увеличьте его ширину и высоту в 2 раза.
 <body>
-		<div>
-			<p>Первый элемент</p>
-			<p id="elem">Второй элемент</p>
-			<p>Третий элемент</p>
+		<div id="elem">
+			Lorem ipsum dolorsit amet consectetur adipiscing elit. Sed viverra mollis lorem, fringilla dapibus nisi commodo interdum. Vivamus in turpis quis purus dapibus aliquam id nec velit. In at aliquet sem, a rutrum neque. Vestibulum posuere lobortis accumsan. Etiam non tincidunt erat, vel condimentum turpis.
 		</div>
-		
 		<script>
+			
 			var elem = document.getElementById('elem');
-			var elemsub = elem.previousElementSibling;
-			elemsub.innerHTML = elemsub.innerHTML + '!';
-		</script>	
+			elem.addEventListener('click', ClickZise);
+			
+			function ClickZise(){
+				var def_width = this.offWidth;
+				var def_height = this.offHeight;
+				this.style.widht = def_widht * 2 + 'px';
+				this.style.height = def_height * 2 + 'px';
+		</script>
 	</body>
