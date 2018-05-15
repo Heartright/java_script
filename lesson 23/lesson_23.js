@@ -559,9 +559,10 @@
 			elem.addEventListener('click', ClickZise);
 			
 			function ClickZise(){
-				var def_width = this.offWidth;
-				var def_height = this.offHeight;
-				this.style.widht = def_widht * 2 + 'px';
+				var def_width = this.offsetWidth;
+				var def_height = this.offsetHeight;
+				this.style.width = def_width * 2 + 'px';
 				this.style.height = def_height * 2 + 'px';
+				}
 		</script>
 	</body>
