@@ -4,26 +4,37 @@
 		<meta charset="utf-8">
 		<title>Lesson_test</title>
 		<style>
-			
-			input {
-				margin-top: 20px;
+			#elem {
+				width: 100px;
+				height: 100px;
+				border: 1px solid red;
+				position: absolute;
+				top: 30px;
+				left: 0;
 			}
+			
 		</style >
-	</head>
-	
-	<body>
 		
-		<input type="submit" id="elem" value="Нажми на меня"><p>
+	</head>
+	<body>
+		<input id="input" placeholder="Введите текст" onkeypress="keyPress(event);">
+		<p id="text"></p>
+		
 		<script>
+		
+			var text = document.getElementById('text');
+			var input = document.getElementById('input');
 			
-			var elem = document.getElementById('elem');
-			elem.addEventListener('click', clickInfo);
-			
-			function clickInfo(){
-					alert('Текущая прокрутка сверху: ' + window.pageYOffset);
+			function keyPress(event) {
+				var code = event.keyCode;
+				if (code == 13){
+					text.innerHTML = input.value;
+					input.value = "";
 				}
+			}
 		</script>
 	</body>
+	
 </html>
 
 <!-- var alertElem = elem.classList.contains('www'); -->
