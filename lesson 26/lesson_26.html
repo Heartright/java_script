@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Lesson_test</title>
+		<style>
+	
+			
+		</style >
+		
+	</head>
+	<body>
+		<ul id="ul">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+		<input type="submit" value="Добавить новый пункт" id="button">
+		
+		<script>
+			var ul = document.getElementById('ul');
+			var button = document.getElementById('button');
+			var li = document.createElement('li');
+			
+			ul.addEventListener('click', clickAdd);
+			button.addEventListener('click', add_li);
+			
+			function add_li(){
+				li.innerHTML = 'пункт'
+				ul.appendChild(li);
+			}
+				
+			function clickAdd(){
+				event.target.innerHTML = event.target.innerHTML + '!';
+			}
+			
+		</script>
+	</body>
+	
+</html>
+
+<!-- var alertElem = elem.classList.contains('www'); -->
+			<!-- alert(alertElem);  -->
