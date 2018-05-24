@@ -32,35 +32,73 @@
 	</body>
 
 2. Дана таблица с юзерами с двумя колонками: имя и фамилия. Под таблицей сделайте форму, с помощью которой можно будет добавить нового юзера в таблицу. Сделайте так, чтобы при клике на любую ячейку появлялся prompt, с помощью которого можно изменить текст ячейки. Задачу решите с помощью делегирования (то есть событие должно быть навешано на table).
-	
 	<style>
-			#elem {
-				width: 100px;
-				height: 100px;
-				border: 1px solid red;
-				position: absolute;
-				top: 30px;
-				left: 0;
+			table {
+				border: 1px solid blue;
+				border-collapse: collapse;
+				width: 20%;
 			}
-			body {
-				margin: 0;
+			
+			.newUser {
+				display: flex;
+				flex-direction: column;
+				width: 20%;
+			}
+			
+			input {
+				margin: 10px 0;
+			}
+			
+			td {
+				height: 20px;
+				text-align: center;
 			}
 			
 		</style >
+		
 	</head>
-	
 	<body>
-		Нажмите в любое место.
-		<div id="elem"> </div>
+		<table id="infoForm" border="1">
+			<tr>
+				<th>Имя</th>
+				<th>Фамилия</th>
+			</tr>
+			<tr>
+				<td>Pert</td>
+				<td>Petrov</td>
+			</tr>
+			
+		</table>
+		
+		<div class="newUser">
+			<input type="text" placeholder="Введите имя" id="setFirstname">
+			<input type="text" placeholder="Введите Фамилию" id="setLastname">
+			<input type="submit" value="Добавить пользователя" id="addNewUser">
+		</div>
+		
 		<script>
+			var table = document.getElementById('infoForm');
+			var firstname = document.getElementById('setFirstname');
+			var lastname = document.getElementById('setLastname');
+			var tr = document.createElement('tr');
+			var newUser = document.getElementById('addNewUser');
 			
-			window.addEventListener('click', Infomove)
+			table.addEventListener('click', changeInfo);	
+			newUser.addEventListener('click', addUser);
 			
-			function Infomove(event){
-				var elem = document.getElementById('elem');
-				elem.style.left = event.clientX + 'px';
-				elem.style.top = event.clientY + 'px';
-				}
+			function changeInfo() {
+				var info = event.target.closest('td');
+				var change = prompt('Можете внести изменения', info.innerHTML);
+				info.innerHTML = change;
+			}
+			
+			function addUser() {	
+				tr.innerHTML = '<td>' + firstname.value + '</td>' + '<td>' + lastname.value + '</td>';
+				table.appendChild(tr);	
+				firstname.value = '';
+				lastname.value = '';
+			}
+			
 		</script>
 	</body>
 
