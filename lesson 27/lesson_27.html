@@ -4,72 +4,46 @@
 		<meta charset="utf-8">
 		<title>Lesson_test</title>
 		<style>
-			table {
-				border: 1px solid blue;
-				border-collapse: collapse;
-				width: 20%;
-			}
-			
-			.newUser {
-				display: flex;
-				flex-direction: column;
-				width: 20%;
-			}
-			
-			input {
-				margin: 10px 0;
-			}
-			
-			td {
-				height: 20px;
-				text-align: center;
-			}
-			
 		</style >
 		
 	</head>
 	<body>
-		<table id="infoForm" border="1">
-			<tr>
-				<th>Имя</th>
-				<th>Фамилия</th>
-			</tr>
-			<tr>
-				<td>Pert</td>
-				<td>Petrov</td>
-			</tr>
-			
-		</table>
-		
-		<div class="newUser">
-			<input type="text" placeholder="Введите имя" id="setFirstname">
-			<input type="text" placeholder="Введите Фамилию" id="setLastname">
-			<input type="submit" value="Добавить пользователя" id="addNewUser">
-		</div>
+		<select id="country" onchange="setCountry()">
+			<option value="0">Select Country</option>
+			<option value="1">Sweden</option>
+			<option value="2">Australia</option>
+			<option value="3">Germany</option>
+		</select><br><br>
+		<select id="setCity" disabled>
+			<option>Set City</option>
+		</select>
 		
 		<script>
-			var table = document.getElementById('infoForm');
-			var firstname = document.getElementById('setFirstname');
-			var lastname = document.getElementById('setLastname');
-			var tr = document.createElement('tr');
-			var newUser = document.getElementById('addNewUser');
+		var cityList = {};	
+			cityList[0] = ['Set City'];
+			cityList[1] = ['Stockholm','Lund', 'Malmo','Helsingborg'];
+			cityList[2] = ['Sydney',	'Melbourne', 'Brisbane', 'Perth'];
+			cityList[3] = ['Berlin', 'Hamburg', 'Dortmund', 'Essen'];
 			
-			table.addEventListener('click', changeInfo);	
-			newUser.addEventListener('click', addUser);
+			function setCountry(){
+			setCity.disabled = false;
+			var country = document.getElementById("country");
+			var city = document.getElementById("setCity");
+			var new_option = country.options[country.selectedIndex].value;
+			var countrys = cityList[new_option];
 			
-			function changeInfo() {
-				var info = event.target.closest('td');
-				var change = prompt('Можете внести изменения', info.innerHTML);
-				info.innerHTML = change;
+			while (city.options.length) {
+				city.remove(0);
 			}
 			
-			function addUser() {	
-				tr.innerHTML = '<td>' + firstname.value + '</td>' + '<td>' + lastname.value + '</td>';
-				table.appendChild(tr);	
-				firstname.value = '';
-				lastname.value = '';
+				if (countrys) {
+					for (var i = 0; i < countrys.length; i++) {
+					var country = new Option(countrys[i],i);
+					city.options.add(country);
+					}
+				}
+				
 			}
-			
 		</script>
 	</body>
 	

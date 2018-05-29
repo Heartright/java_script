@@ -1,0 +1,42 @@
+<html>
+  <head>
+  <title>
+  </title>
+  </head>
+  <body>
+<select id="country_id" class="StyleSelectBox">
+    <option value="0">- выберите страну -</option>
+    <option value="1">Россия</option>
+    <option value="2">Украина</option>
+    <option value="3">Белорусь</option>
+</select>
+<br>Регион: 
+<select id="region_id" disabled>
+    <option value="0">- Выберите регион -</option>
+</select></td><td>
+
+<script>
+  var all_regions=[];
+ 
+all_regions[0]=["московская обл","ростовская обл","саратовская обл"];
+all_regions[1]=["киевская обл","львовская обл","харьковская обл"];
+all_regions[2]=["минская обл","брестская обл","гроднинская обл"];
+ 
+ 
+country_id.onchange=function(){
+    region_id.disabled=false;
+    var city = getElementById('city_id');
+    if(city!=all_regions[1]){
+        for(var i=0;i<all_regions.length;i++){
+            region_id.innerHTML+='<option value="'+(i+1)+'">'+all_regions[i]+'</option>';
+        }
+    }else{
+        region_id.disabled=true;
+        city_id.disabled=true;
+    }
+}
+ 
+
+  </script>
+  </body>
+  </html>

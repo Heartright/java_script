@@ -1,104 +1,133 @@
-Задачи на продвинутую работу с объектом Event на JavaScript
+Задачи на разные полезные темы JavaScript
 
-1. Дан ul, в нем несколько li. Под ul сделайте кнопку, по нажатию на которую в конец ul будет добавляться новый li с текстом 'пункт'. Сделайте так, чтобы при клике на каждый li, ему в конец добавлялся '!'. Это должно работать и для вновь добавленных li. Задачу решите с помощью делегирования (то есть событие должно быть навешано на ul).
+1.  Дана форма с id="form". В ней даны инпуты, в них числа. Дана кнопка. По нажатию на эту кнопку получите форму по ее id, затем циклом переберите все инпуты в ней и найдите сумму чисел из этих инпутов.
 	
+<body>
+		<form id="form">
+			<input value="2"><br><br>
+			<input value="5"><br><br>
+			<input value="3"><br><br>
+		</form>
+		
+		<button id="button" onclick="sumInput()">Посчитать сумму</button><br><br>
+		<input id="test" placeholder="Сумма">
+		<script>
+			function sumInput() {
+				var sum_Input = document.forms.form;	
+				var sum = 0;
+				for (var i = 0; i < sum_Input.length; i++ ) {
+					sum += Number(sum_Input[i].value);
+				}
+				document.getElementById('test').value = sum;
+			}
+		</script>
+	</body>
+
+2. На странице расположено несколько форм. В них есть инпуты, в инпутах числа. Дана кнопка. По нажатию на эту кнопку циклом переберите все формы на странице, затем циклом переберите все инпуты в каждой форме и найдите сумму чисел из всех этих инпутов.
 	<body>
-		<ul id="ul">
-			<li>1</li>
-			<li>2</li>
-			<li>3</li>
-			<li>4</li>
-		</ul>
-		<input type="submit" value="Добавить новый пункт" id="button">
+		<form>
+			Форма № 1<br>
+			<input value="2"><br><br>
+			<input value="5"><br><br>
+			<input value="3"><br><br>
+		</form>
+		<form>
+			Форма № 2<br>
+			<input value="2"><br><br>
+			<input value="5"><br><br>
+			<input value="3"><br><br>
+		</form>
+		
+		<button id="button" onclick="sumInput()">Посчитать сумму</button><br><br>
+		<input id="test" placeholder="Сумма">
+		<script>
+			function sumInput() {
+				var sum = 0;
+				for (var i = 0; i < document.forms.length; i++ ) {
+						var sum_Input = document.forms[i].elements;
+					for (var j = 0 ; j < sum_Input.length; j++){
+						sum += Number(sum_Input[j].value);
+					}
+				}
+				document.getElementById('test').value = sum;
+			}
+		</script>
+	</body>
+
+3. Дан селект. Дан инпут. По изменению селекта выведите текст выбранного пункта в инпут.
+
+<body>
+		<select id="text" onchange="change()">
+			<option>Текст 1</option>
+			<option>Текст 2</option>
+			<option>Текст 3</option>
+		</select>
+		<input type="text" id="input">
+	
+		<script>
+			function change() {
+				var elem = document.getElementById('text');
+				k = elem.selectedIndex;
+				document.getElementById('input').value = elem.options[k].text;
+			}
+		</script>
+	</body>
+4. Дан селект. Дан инпут. Дана кнопка. Сделайте так, чтобы в инпут можно было ввести число, нажать на кнопку и в селекте становился выбранным пункт с этим номером.
+
+	<body>
+		<select id="text" >
+			<option>text 1</option>
+			<option>text 2</option>
+			<option>text 3</option>
+		</select><br><br>
+		<input type="text" id="input" placeholder="Set option"><br><br>
+		<button id="change" onclick="changeOption()" >Change option</button>
+		<script>
+			function changeOption() {
+				var elem = document.getElementById('text');
+				input = document.getElementById('input');
+				elem.selectedIndex = input.value-1;
+			}
+		</script>
+	</body>
+5. Дан селект со списком стран. Сделайте так, чтобы при выборе страны рядом появлялся еще и селект со списком городов из этой страны.
+
+<body>
+		<select id="country" onchange="setCountry()">
+			<option value="0">Select Country</option>
+			<option value="1">Sweden</option>
+			<option value="2">Australia</option>
+			<option value="3">Germany</option>
+		</select><br><br>
+		<select id="setCity" disabled>
+			<option>Set City</option>
+		</select>
 		
 		<script>
-			var ul = document.getElementById('ul');
-			var button = document.getElementById('button');
-			var li = document.createElement('li');
+		var cityList = {};	
+			cityList[0] = ['Set City'];
+			cityList[1] = ['Stockholm','Lund', 'Malmo','Helsingborg'];
+			cityList[2] = ['Sydney',	'Melbourne', 'Brisbane', 'Perth'];
+			cityList[3] = ['Berlin', 'Hamburg', 'Dortmund', 'Essen'];
 			
-			ul.addEventListener('click', clickAdd);
-			button.addEventListener('click', add_li);
+			function setCountry(){
+			setCity.disabled = false;
+			var country = document.getElementById("country");
+			var city = document.getElementById("setCity");
+			var new_option = country.options[country.selectedIndex].value;
+			var countrys = cityList[new_option];
 			
-			function add_li(){
-				li.innerHTML = 'пункт'
-				ul.appendChild(li);
+			while (city.options.length) {
+				city.remove(0);
 			}
+			
+				if (countrys) {
+					for (var i = 0; i < countrys.length; i++) {
+					var country = new Option(countrys[i],i);
+					city.options.add(country);
+					}
+				}
 				
-			function clickAdd(){
-				event.target.innerHTML = event.target.innerHTML + '!';
 			}
-			
 		</script>
 	</body>
-
-2. Дана таблица с юзерами с двумя колонками: имя и фамилия. Под таблицей сделайте форму, с помощью которой можно будет добавить нового юзера в таблицу. Сделайте так, чтобы при клике на любую ячейку появлялся prompt, с помощью которого можно изменить текст ячейки. Задачу решите с помощью делегирования (то есть событие должно быть навешано на table).
-	<style>
-			table {
-				border: 1px solid blue;
-				border-collapse: collapse;
-				width: 20%;
-			}
-			
-			.newUser {
-				display: flex;
-				flex-direction: column;
-				width: 20%;
-			}
-			
-			input {
-				margin: 10px 0;
-			}
-			
-			td {
-				height: 20px;
-				text-align: center;
-			}
-			
-		</style >
-		
-	</head>
-	<body>
-		<table id="infoForm" border="1">
-			<tr>
-				<th>Имя</th>
-				<th>Фамилия</th>
-			</tr>
-			<tr>
-				<td>Pert</td>
-				<td>Petrov</td>
-			</tr>
-			
-		</table>
-		
-		<div class="newUser">
-			<input type="text" placeholder="Введите имя" id="setFirstname">
-			<input type="text" placeholder="Введите Фамилию" id="setLastname">
-			<input type="submit" value="Добавить пользователя" id="addNewUser">
-		</div>
-		
-		<script>
-			var table = document.getElementById('infoForm');
-			var firstname = document.getElementById('setFirstname');
-			var lastname = document.getElementById('setLastname');
-			var tr = document.createElement('tr');
-			var newUser = document.getElementById('addNewUser');
-			
-			table.addEventListener('click', changeInfo);	
-			newUser.addEventListener('click', addUser);
-			
-			function changeInfo() {
-				var info = event.target.closest('td');
-				var change = prompt('Можете внести изменения', info.innerHTML);
-				info.innerHTML = change;
-			}
-			
-			function addUser() {	
-				tr.innerHTML = '<td>' + firstname.value + '</td>' + '<td>' + lastname.value + '</td>';
-				table.appendChild(tr);	
-				firstname.value = '';
-				lastname.value = '';
-			}
-			
-		</script>
-	</body>
-
