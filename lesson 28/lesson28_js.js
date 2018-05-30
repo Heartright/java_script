@@ -1,95 +1,94 @@
-Задачи на разные полезные темы JavaScript
+Практика JavaScript для новичков
 
-1.  Дана форма с id="form". В ней даны инпуты, в них числа. Дана кнопка. По нажатию на эту кнопку получите форму по ее id, затем циклом переберите все инпуты в ней и найдите сумму чисел из этих инпутов.
+1. Даны 3 инпута и кнопка. По нажатию на кнопку получите числа, стоящие в этих инпутах и запишите их сумму в четвертый инпут.
 	
 <body>
-		<form id="form">
-			<input value="2"><br><br>
-			<input value="5"><br><br>
-			<input value="3"><br><br>
+		<form id="counts">
+			<input placeholder="Введите число" value=""><br><br>
+			<input placeholder="Введите число" value=""><br><br>
+			<input placeholder="Введите число" value=""><br><br>
 		</form>
+		<input placeholder="Сумма" id="summa">
+		<button id="clickSum" onclick="clickSumma()">Посчитать сумму</button>
 		
-		<button id="button" onclick="sumInput()">Посчитать сумму</button><br><br>
-		<input id="test" placeholder="Сумма">
 		<script>
-			function sumInput() {
-				var sum_Input = document.forms.form;	
-				var sum = 0;
-				for (var i = 0; i < sum_Input.length; i++ ) {
-					sum += Number(sum_Input[i].value);
+			function clickSumma() {
+				var count = document.forms.counts;
+				sum = 0;
+				for(var i = 0; i < count.length; i++){
+					sum += Number(count[i].value);
 				}
-				document.getElementById('test').value = sum;
-			}
+				
+					document.getElementById('summa').value = sum;
+			}			
 		</script>
 	</body>
 
-2. На странице расположено несколько форм. В них есть инпуты, в инпутах числа. Дана кнопка. По нажатию на эту кнопку циклом переберите все формы на странице, затем циклом переберите все инпуты в каждой форме и найдите сумму чисел из всех этих инпутов.
+2. Даны N инпутов с классом .num и кнопка. По нажатию на кнопку получите числа, стоящие в этих инпутах и запишите их сумму в абзац с id="result".
 	<body>
-		<form>
-			Форма № 1<br>
-			<input value="2"><br><br>
-			<input value="5"><br><br>
-			<input value="3"><br><br>
-		</form>
-		<form>
-			Форма № 2<br>
-			<input value="2"><br><br>
-			<input value="5"><br><br>
-			<input value="3"><br><br>
-		</form>
+			<input placeholder="Введите число" value="" class="num"><br><br>
+			<input placeholder="Введите число" value="" class="num"><br><br>
+			<input placeholder="Введите число" value="" class="num"><br><br>
+				<p id="result"></p>
+		<button id="clickSum" onclick="clickSumma()">Посчитать сумму</button>
 		
-		<button id="button" onclick="sumInput()">Посчитать сумму</button><br><br>
-		<input id="test" placeholder="Сумма">
 		<script>
-			function sumInput() {
-				var sum = 0;
-				for (var i = 0; i < document.forms.length; i++ ) {
-						var sum_Input = document.forms[i].elements;
-					for (var j = 0 ; j < sum_Input.length; j++){
-						sum += Number(sum_Input[j].value);
-					}
+			function clickSumma() {
+				var num = document.getElementsByClassName('num');
+				sum = 0;
+				for(var i = 0; i < num.length; i++){
+					sum += Number(num[i].value);
 				}
-				document.getElementById('test').value = sum;
-			}
+				var result = document.getElementById('result');
+				result.innerHTML = sum;
+			}			
 		</script>
 	</body>
 
-3. Дан селект. Дан инпут. По изменению селекта выведите текст выбранного пункта в инпут.
+3. Дан инпут. В него вводится число. По потери фокуса найдите сумму цифр этого числа.
 
 <body>
-		<select id="text" onchange="change()">
-			<option>Текст 1</option>
-			<option>Текст 2</option>
-			<option>Текст 3</option>
-		</select>
-		<input type="text" id="input">
-	
+			<input placeholder="Введите число" value="" id="num" onblur="clickSumma()">
+				<p id="result"> </p>
 		<script>
-			function change() {
-				var elem = document.getElementById('text');
-				k = elem.selectedIndex;
-				document.getElementById('input').value = elem.options[k].text;
-			}
+		
+			function clickSumma() {
+				var num = document.getElementById('num');
+				var sum = 0;
+				var str = num.value;
+				var array = str.split('');
+				
+				for(var i = 0; i < array.length; i++){
+					sum += Number(array[i]);
+				}
+				var result = document.getElementById('result');
+				result.innerHTML = sum;
+			}			
 		</script>
 	</body>
-4. Дан селект. Дан инпут. Дана кнопка. Сделайте так, чтобы в инпут можно было ввести число, нажать на кнопку и в селекте становился выбранным пункт с этим номером.
+	
+4. Дан инпут. В него вводятся числа через запятую. По потери фокуса найдите среднее арифметическое этих чисел (сумма делить на количество).
 
 	<body>
-		<select id="text" >
-			<option>text 1</option>
-			<option>text 2</option>
-			<option>text 3</option>
-		</select><br><br>
-		<input type="text" id="input" placeholder="Set option"><br><br>
-		<button id="change" onclick="changeOption()" >Change option</button>
+			<input placeholder="Введите число" value="" id="num" onblur="clickSumma()">
+				<p id="result"> </p>
 		<script>
-			function changeOption() {
-				var elem = document.getElementById('text');
-				input = document.getElementById('input');
-				elem.selectedIndex = input.value-1;
-			}
+		
+			function clickSumma() {
+				var num = document.getElementById('num');
+				var sum = 0;
+				var str = num.value;
+				var array = str.split(',');
+				
+				for(var i = 0; i < array.length; i++){
+					sum += Number(array[i]);
+				}
+				var result = document.getElementById('result');
+				result.innerHTML = sum / array.length;
+			}			
 		</script>
 	</body>
+	
 5. Дан селект со списком стран. Сделайте так, чтобы при выборе страны рядом появлялся еще и селект со списком городов из этой страны.
 
 <body>

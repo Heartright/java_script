@@ -8,42 +8,22 @@
 		
 	</head>
 	<body>
-		<select id="country" onchange="setCountry()">
-			<option value="0">Select Country</option>
-			<option value="1">Sweden</option>
-			<option value="2">Australia</option>
-			<option value="3">Germany</option>
-		</select><br><br>
-		<select id="setCity" disabled>
-			<option>Set City</option>
-		</select>
-		
+			<input placeholder="Введите ФИО" value="" id="form" onblur="clickForm()">
+				<p id="result"> </p>
 		<script>
-		var cityList = {};	
-			cityList[0] = ['Set City'];
-			cityList[1] = ['Stockholm','Lund', 'Malmo','Helsingborg'];
-			cityList[2] = ['Sydney',	'Melbourne', 'Brisbane', 'Perth'];
-			cityList[3] = ['Berlin', 'Hamburg', 'Dortmund', 'Essen'];
-			
-			function setCountry(){
-			setCity.disabled = false;
-			var country = document.getElementById("country");
-			var city = document.getElementById("setCity");
-			var new_option = country.options[country.selectedIndex].value;
-			var countrys = cityList[new_option];
-			
-			while (city.options.length) {
-				city.remove(0);
-			}
-			
-				if (countrys) {
-					for (var i = 0; i < countrys.length; i++) {
-					var country = new Option(countrys[i],i);
-					city.options.add(country);
-					}
-				}
+		
+			function clickForm() {
+				var num = document.getElementById('num');
+				var sum = 0;
+				var str = num.value;
+				var array = str.split(' ');
 				
-			}
+				for(var i = 0; i < array.length; i++){
+					sum += Number(array[i]);
+				}
+				var result = document.getElementById('result');
+				result.innerHTML = sum / array.length;
+			}			
 		</script>
 	</body>
 	
