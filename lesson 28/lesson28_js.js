@@ -91,42 +91,65 @@
 	
 5. Дан инпут. В него вводится ФИО через пробел. По потери фокуса запишите фамилию, имя и отчество в отдельные инпуты.
 
-<body>
-		<select id="country" onchange="setCountry()">
-			<option value="0">Select Country</option>
-			<option value="1">Sweden</option>
-			<option value="2">Australia</option>
-			<option value="3">Germany</option>
-		</select><br><br>
-		<select id="setCity" disabled>
-			<option>Set City</option>
-		</select>
+<body> 
+
+		<input id="input" type="text" placeholder="Ввидите ФИО" onblur="input_fio()"><br><br>
+		
+			<input id="second_name" type="text">
+			<input id="first_name" type="text">
+			<input id="last_name" type="text">
+	
+			<script>
+				var input = document.getElementById('input');
+				var second_name = document.getElementById('second_name');
+				var first_name = document.getElementById('first_name');
+				var last_name = document.getElementById('last_name');
+
+				function input_fio() {
+						var array = input.value.split(' ');
+						second_name.value = array[0];
+						first_name.value = array[1];
+						last_name.value = array[2];
+					}
+			</script>
+	</body>
+6. Дан инпут. В него вводится ФИО через пробел. ФИО вводится с маленькой буквы. Сделайте так, чтобы по потери фокуса инпутом, введенные фамилия, имя и отчество автоматически стали записанными с большой буквы (в том же инпуте).
+
+<body> 
+
+		<input id="input" type="text" placeholder="Ввидите ФИО" onblur="upWords()"><br><br>
 		
 		<script>
-		var cityList = {};	
-			cityList[0] = ['Set City'];
-			cityList[1] = ['Stockholm','Lund', 'Malmo','Helsingborg'];
-			cityList[2] = ['Sydney',	'Melbourne', 'Brisbane', 'Perth'];
-			cityList[3] = ['Berlin', 'Hamburg', 'Dortmund', 'Essen'];
-			
-			function setCountry(){
-			setCity.disabled = false;
-			var country = document.getElementById("country");
-			var city = document.getElementById("setCity");
-			var new_option = country.options[country.selectedIndex].value;
-			var countrys = cityList[new_option];
-			
-			while (city.options.length) {
-				city.remove(0);
-			}
-			
-				if (countrys) {
-					for (var i = 0; i < countrys.length; i++) {
-					var country = new Option(countrys[i],i);
-					city.options.add(country);
+		
+			function upWords() {
+					var full = document.getElementById('input');
+					var array = full.value.split(' ');
+						for (var i = 0; i < array.length; i++) {
+						array[i] = array[i].charAt(0).toUpperCase() + array[i].slice(1).toLowerCase();
 					}
-				}
+						full.value = array.join(' ');
+					}
 				
-			}
+				
+		</script>
+	</body>
+7. 
+
+<body> 
+
+		<input id="input" type="text" placeholder="Ввидите ФИО" onblur="upWords()"><br><br>
+		
+		<script>
+		
+			function upWords() {
+					var full = document.getElementById('input');
+					var array = full.value.split(' ');
+						for (var i = 0; i < array.length; i++) {
+						array[i] = array[i].charAt(0).toUpperCase() + array[i].slice(1).toLowerCase();
+					}
+						full.value = array.join(' ');
+					}
+				
+				
 		</script>
 	</body>

@@ -7,23 +7,22 @@
 		</style >
 		
 	</head>
-	<body>
-			<input placeholder="Введите ФИО" value="" id="form" onblur="clickForm()">
-				<p id="result"> </p>
+	<body> 
+
+		<input id="input" type="text" placeholder="Ввидите ФИО" onblur="upWords()"><br><br>
+		
 		<script>
 		
-			function clickForm() {
-				var num = document.getElementById('num');
-				var sum = 0;
-				var str = num.value;
-				var array = str.split(' ');
+			function upWords() {
+					var full = document.getElementById('input');
+					var array = full.value.split(' ');
+						for (var i = 0; i < array.length; i++) {
+						array[i] = array[i].charAt(0).toUpperCase() + array[i].slice(1).toLowerCase();
+					}
+						full.value = array.join(' ');
+					}
 				
-				for(var i = 0; i < array.length; i++){
-					sum += Number(array[i]);
-				}
-				var result = document.getElementById('result');
-				result.innerHTML = sum / array.length;
-			}			
+				
 		</script>
 	</body>
 	
