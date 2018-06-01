@@ -9,7 +9,6 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   </head>
   <body>
-   <form>
     <div class="col-sm-4">
             <div class="calc">
               <h2>Рассчет стоимости</h2>
@@ -31,14 +30,13 @@
               </select>
               <br>
               <label for="count">Укажите метраж</label>
-              <input type="text" id="count" class="form-control" placeholder="Введите метраж м2">
+              <input  type="text" id="count" class="form-control" required placeholder="Введите метраж м2" >
               <br>
     <div class="form-group">
         <label for="total-price">Итоговая цена</label>
         <input type="text" class="form-control" id="total-price">
     </div>
-    <button type="submit" class="btn btn-default">Подсчитать </button>
-</form>
+    <button type="submit" class="btn btn-default" id="click">Подсчитать </button>
 
 <script>
   var $dir = $('#rooms')
@@ -46,12 +44,26 @@
    ,$tot = $('#total-price')
    ,$counts = $('#count')
    ,prices = {
-   // номер_направления: { номер_кол-ва: цена, }
      1: { 1: 4000, 2: 5300, 3: 5200, 4: 6300},
      2: { 1: 3600, 2: 4700, 3: 4500, 4: 5800},
      3: { 1: 3250, 2: 4400, 3: 4200, 4: 5500}
    }
 ;
+function prices_calc() {
+  var dir = $dir.val(); 
+  var num = $num.val(); 
+  if ( prices[dir]  &&  prices[dir][num]){
+    var total =  prices[dir][num] * $("#count").val();
+    $tot.val(total); 
+  }
+  else {
+    alert('Укажите помещения');
+  }
+}
+
+$(function() {
+         $('#click').on('click', prices_calc);
+      })
 
 </script>
   </body>
