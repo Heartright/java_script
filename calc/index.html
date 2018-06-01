@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+	
+
+    <title>Calc</title>
+  </head>
+  <body>
+   	<section id="main">
+   		<div class="container">
+   			<div class="row">
+   				<div class="col-sm-4">
+   					<div class="calc">
+   						<h2>Рассчет стоимости</h2>
+   						<label for="rooms">Выберите количество комнат</label>
+   						<select class="form-control" name="count_rooms" id="rooms">
+							<option value="0">Укажите количество комнат</option>
+   							<option value="1">1-комнатная квартира</option>
+   							<option value="2">2х-комнатная квартира</option>
+   							<option value="3">3х-комнатная квартира</option>
+   						</select>
+   						<br>
+   						<label for="type_house">Выберите фонд</label>
+   						<select name="type_rooms" id="type_house" class="form-control">
+   							<option value="0">Укажите фонд</option>
+   							<option value="1">Новостройка с подготовкой</option>
+   							<option value="2">Новостройка без подготовки</option>
+   							<option value="3">Вторичный фонд</option>
+   							<option value="4">Исторические здания</option>
+   						</select>
+   						<br>
+   						<label for="count">Укажите метраж</label>
+   						<input type="text" id="count" class="form-control" placeholder="Введите метраж м2">
+   						<br>
+   						 <div class="form-group">
+      					  <label for="total-price">Итоговая цена</label>
+      					  <input type="text" class="form-control" id="total-price">
+   						 </div>
+   						<button type="submit" class="btn btn-default">Подсчитать</button>
+   					</div>
+   				</div>
+   				<div class="col-sm-1">
+   					<div class="calc_img text-center">
+   						<img src="img/1.png">
+   					</div>
+   					
+   					</div>
+   			</div>
+   		</div>
+   	</section>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+    	$(document).ready(function (){
+    		var $dir = $('#rooms')
+ 			  ,$num = $('#type_house')
+  			 ,$tot = $('#total-price')
+  			 ,prices = {
+   // номер_направления: { номер_кол-ва: цена, }
+     1: { 1: 500, 2: 1300, 3: 1700, 4: 2000},
+     2: { 1: 500, 2: 1500, 3: 2100, 4: 2500},
+     3: { 1: null,2: 1400, 3: 1900, 4: 2300}
+   }
+;
+
+function onclick() {
+  var dir = $dir.val(); // значение направления
+  var num = $num.val(); // значение кол-ва
+  $tot.val( prices[dir]  &&  prices[dir][num]); 
+}
+
+// слушать собятия обновления значений
+$dir.on('change', onclick);
+$num.on('change', onclick);
+    	 })
+    </script>
+  </body>
+</html>

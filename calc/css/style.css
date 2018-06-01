@@ -1,0 +1,18 @@
+.calc {
+	margin-top: 50px;
+	border: 5px solid #FFCC00;
+	padding: 20px 20px;
+	background-color: #FFCC00;
+}
+.form-control {
+	.color: #FFCC00	;
+}
+
+#final_price {
+	font-size: 25px;
+	font-weight: 100px;
+}
+
+.calc_img img {
+	margin-top: 100px;
+}

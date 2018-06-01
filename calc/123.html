@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  </head>
+  <body>
+   <form>
+    <div class="col-sm-4">
+            <div class="calc">
+              <h2>Рассчет стоимости</h2>
+              <label for="rooms">Выберите количество комнат</label>
+              <select class="form-control" name="count_rooms" id="rooms">
+              <option value="0">Укажите количество комнат</option>
+                <option value="1">1-комнатная квартира</option>
+                <option value="2">2х-комнатная квартира</option>
+                <option value="3">3х-комнатная квартира</option>
+              </select>
+              <br>
+              <label for="type_house">Выберите фонд</label>
+              <select name="type_rooms" id="type_house" class="form-control">
+                <option value="0">Укажите фонд</option>
+                <option value="1">Новостройка с подготовкой</option>
+                <option value="2">Новостройка без подготовки</option>
+                <option value="3">Вторичный фонд</option>
+                <option value="4">Исторические здания</option>
+              </select>
+              <br>
+              <label for="count">Укажите метраж</label>
+              <input type="text" id="count" class="form-control" placeholder="Введите метраж м2">
+              <br>
+    <div class="form-group">
+        <label for="total-price">Итоговая цена</label>
+        <input type="text" class="form-control" id="total-price">
+    </div>
+    <button type="submit" class="btn btn-default">Подсчитать </button>
+</form>
+
+<script>
+  var $dir = $('#rooms')
+   ,$num = $('#type_house')
+   ,$tot = $('#total-price')
+   ,$counts = $('#count')
+   ,prices = {
+   // номер_направления: { номер_кол-ва: цена, }
+     1: { 1: 4000, 2: 5300, 3: 5200, 4: 6300},
+     2: { 1: 3600, 2: 4700, 3: 4500, 4: 5800},
+     3: { 1: 3250, 2: 4400, 3: 4200, 4: 5500}
+   }
+;
+
+</script>
+  </body>
+</html>
