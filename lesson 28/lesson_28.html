@@ -9,20 +9,21 @@
 	</head>
 	<body> 
 
-		<input id="input" type="text" placeholder="Ввидите ФИО" onblur="upWords()"><br><br>
+		<input id="input" type="text" placeholder="" onblur="dataform()">
 		
 		<script>
-		
-			function upWords() {
-					var full = document.getElementById('input');
-					var array = full.value.split(' ');
-						for (var i = 0; i < array.length; i++) {
-						array[i] = array[i].charAt(0).toUpperCase() + array[i].slice(1).toLowerCase();
-					}
-						full.value = array.join(' ');
-					}
-				
-				
+			
+			function dataform() {
+			var input = document.getElementById('input');
+				var str = input.value;
+				var array = str.split('.');
+				var arrayNewData = [];				
+				var arrayNewData = array.reverse();
+				var strNewData = arrayNewData.join('-');
+				input.value = strNewData;
+			}
+			
+			
 		</script>
 	</body>
 	

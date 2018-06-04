@@ -133,7 +133,7 @@
 				
 		</script>
 	</body>
-7. 
+7. Дан инпут. В него вводится текст. По потери фокуса узнайте количество слов в этом тексте.
 
 <body> 
 
@@ -151,5 +151,59 @@
 					}
 				
 				
+		</script>
+	</body>
+
+8. Дан инпут. В него вводится текст. По потери фокуса узнайте количество символов в самом длинном слове в этом тексте.
+
+<body> 
+
+		<input id="input" type="text" placeholder="Ввидите ФИО" onblur="upWords()">
+		
+		<p id="result"></p>
+		<script>
+		
+			function upWords() {
+					var input = document.getElementById('input');
+					var result = document.getElementById('result');
+					var maxsym = 0;
+					var array = []; 
+					var str = input.value;
+					var arraystr = str.split(' ')
+					
+					
+				for (var i = 0; i < arraystr.length; i++ ){
+						var num = 0;
+						array = arraystr[i].split('');
+						
+					for(var j = 0; j < array.length; j++){
+						 num += 1;
+					}
+					if( num > maxsym ){
+						maxsym = num;
+					}
+				}
+					result.innerHTML = maxsym;
+				}
+		</script>
+	</body>
+9 Дан инпут. В него вводится дата в формате 31.12.2016. По потери фокуса в этом же инпуте поставьте эту дату в формате 2016-12-31.
+
+<body> 
+
+		<input id="input" type="text" placeholder="" onblur="dataform()">
+		
+		<script>
+			
+			function dataform() {
+			var input = document.getElementById('input');
+				var str = input.value;
+				var array = str.split('.');
+				var arrayNewData = [];				
+				var arrayNewData = array.reverse();
+				var strNewData = arrayNewData.join('-');
+				input.value = strNewData;
+			}
+			
 		</script>
 	</body>
