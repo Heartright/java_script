@@ -187,7 +187,7 @@
 				}
 		</script>
 	</body>
-9 Дан инпут. В него вводится дата в формате 31.12.2016. По потери фокуса в этом же инпуте поставьте эту дату в формате 2016-12-31.
+9. Дан инпут. В него вводится дата в формате 31.12.2016. По потери фокуса в этом же инпуте поставьте эту дату в формате 2016-12-31.
 
 <body> 
 
@@ -205,5 +205,49 @@
 				input.value = strNewData;
 			}
 			
+		</script>
+	</body>
+	
+10. Дан инпут. В него вводится год рождения пользователя. По нажатию на кнопку выведите в абзац ниже сколько пользователю лет.
+
+<body> 
+
+		<input id="input" type="text" placeholder="">
+		<button id="clickOn" onclick="onBirthDay()">Нажмите</button>
+		<p id="BirthDay"></p>
+		<script>
+		
+			function onBirthDay() {
+				var input = document.getElementById('input');
+				var birthday = document.getElementById('BirthDay')
+				var year = input.value;
+				var date = new Date();
+				var yearNow = date.getFullYear();
+				birthday.innerHTML = yearNow - year;
+			}
+		</script>
+	</body>
+	
+11. Дан инпут. В него вводится дата в формате 31.12.2016. По потери фокуса узнайте день недели (словом), который приходится на эту дату.
+
+<body> 
+
+		<input id="input" type="text" placeholder="" onblur="strday()">
+		<p id="weekday"></p>
+		<script>
+			
+			function strday() {
+				var week = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+				var input = document.getElementById('input');
+				var str = input.value;
+				var array = str.split('.');
+				var revarray = array.reverse();
+				var newstr = revarray.join(',')
+				var date = new Date(newstr);
+				var day = date.getDay();
+				var weekday = document.getElementById('weekday');
+				weekday.innerHTML = week[day];
+			}
+	
 		</script>
 	</body>

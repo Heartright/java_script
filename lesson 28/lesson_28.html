@@ -9,21 +9,23 @@
 	</head>
 	<body> 
 
-		<input id="input" type="text" placeholder="" onblur="dataform()">
-		
+		<input id="input" type="text" placeholder="" onblur="strday()">
+		<p id="weekday"></p>
 		<script>
 			
-			function dataform() {
-			var input = document.getElementById('input');
+			function strday() {
+				var week = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+				var input = document.getElementById('input');
 				var str = input.value;
 				var array = str.split('.');
-				var arrayNewData = [];				
-				var arrayNewData = array.reverse();
-				var strNewData = arrayNewData.join('-');
-				input.value = strNewData;
+				var revarray = array.reverse();
+				var newstr = revarray.join(',')
+				var date = new Date(newstr);
+				var day = date.getDay();
+				var weekday = document.getElementById('weekday');
+				weekday.innerHTML = week[day];
 			}
-			
-			
+	
 		</script>
 	</body>
 	
