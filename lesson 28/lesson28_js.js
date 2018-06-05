@@ -251,3 +251,56 @@
 	
 		</script>
 	</body>
+
+12. Дан инпут. В него вводится слово. По нажатию на кнопку проверьте то, что это слово читается с начала и с конца одинаково (например, мадам)
+
+<body> 
+
+		<input id="input" type="text" placeholder="Введите слово">
+		<button onclick="clickword()">Проверить слово</button>
+		<script>
+			
+			function clickword() {
+				var input = document.getElementById('input');
+				var str = input.value;
+				var array = str.split('');
+				var arrayword = str.split('').reverse();
+				for(var i = 0; i < array.length; i++){
+					if(array[i]!==arrayword[i]){
+						alert('Вы ввели неверное слово');
+						return;
+					}
+					alert('Вы ввели слово мадам');
+					break;
+				}
+				
+			}
+	
+		</script>
+	</body>
+13.  Дан инпут. В него вводится число. Проверьте по вводу, что это число содержит внутри себя цифру 3
+
+<body> 
+
+		<input id="input" type="text" placeholder="Введите число">
+		<button onclick="clickСount()">Проверить число</button>
+		<script>
+			
+			function clickСount() {
+				var input = document.getElementById('input');
+				var str = input.value;
+				var array = str.split('');
+				for(var i = 0; i < array.length; i++){
+					if(array[i] == 3){
+						alert('число содержит цифру 3');
+						return;
+					}
+				}
+				alert('Число не содержит цифру 3');
+					return;
+			}
+	
+		</script>
+	</body>
+	
+14. Даны N абзацев и кнопка. По нажатию на кнопку запишите в конец каждого абзаца его порядковый номер.

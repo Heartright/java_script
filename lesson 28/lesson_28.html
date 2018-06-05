@@ -9,23 +9,19 @@
 	</head>
 	<body> 
 
-		<input id="input" type="text" placeholder="" onblur="strday()">
-		<p id="weekday"></p>
+		<p>Абзац 1</p>
+		<p>Абзац 2</p>
+		<p>Абзац 3</p>
+		<p>Абзац 4</p>
+		<button onclick="Onclick()">Проверить число</button>
+		
 		<script>
+			function Onclick () {
+				
 			
-			function strday() {
-				var week = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
-				var input = document.getElementById('input');
-				var str = input.value;
-				var array = str.split('.');
-				var revarray = array.reverse();
-				var newstr = revarray.join(',')
-				var date = new Date(newstr);
-				var day = date.getDay();
-				var weekday = document.getElementById('weekday');
-				weekday.innerHTML = week[day];
+			
 			}
-	
+		
 		</script>
 	</body>
 	
