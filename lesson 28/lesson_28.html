@@ -4,23 +4,29 @@
 		<meta charset="utf-8">
 		<title>Lesson_test</title>
 		<style>
+			.sOne {
+				width: 50px;
+			}
 		</style >
 		
 	</head>
 	<body> 
-
-		<p>Абзац 1</p>
-		<p>Абзац 2</p>
-		<p>Абзац 3</p>
-		<p>Абзац 4</p>
-		<button onclick="Onclick()">Проверить число</button>
+			<input class="sOne" type="submit" value="+1" onclick="pCounts()"><br><br>
+			<input class="sOne" type="submit" value="-1" onclick="mCounts()"><br><br>
+			<input id="chgCount" type="text" value="0">
 		
 		<script>
-			function Onclick () {
-				
-			
-			
-			}
+				var count = document.getElementById('chgCount');
+				function pCounts() {
+						if (count.value * 1 >= 0) {
+						count.value = count.value * 1 + 1;
+					} 
+				}
+					function mCounts(){
+					if (count.value * 1 > 0) {
+						count.value = count.value * 1 - 1;
+					}
+				}
 		
 		</script>
 	</body>

@@ -304,3 +304,225 @@
 	</body>
 	
 14. Даны N абзацев и кнопка. По нажатию на кнопку запишите в конец каждого абзаца его порядковый номер.
+
+<body> 
+
+		<p>Абзац 1</p>
+		<p>Абзац 2</p>
+		<p>Абзац 3</p>
+		<p>Абзац 4</p>
+		<button onclick="Onclick()">Нажмите</button>
+		
+		<script>
+			function Onclick () {
+				var input = document.getElementsByTagName('p');
+				for (var i = 0; i < input.length; i++){
+					input[i].innerHTML = input[i].innerHTML + ' ' +(i + 1);
+				}
+			
+			
+			}
+		
+		</script>
+	</body>
+	
+15. Даны N абзацев с числами. По нажатию на кнопку выведите эти числа в инпут через запятую в порядке возрастания.
+
+	<body> 
+
+		<p>1</p>
+		<p>2</p>
+		<p>3</p>
+		<p>4</p>
+		<button onclick="Onclick()">Нажмите на кнопку</button>
+		<input type="text" id="count" value="">
+		
+		<script>
+			function Onclick () {
+				var input = document.getElementsByTagName('p');
+				var count = document.getElementById('count');
+				var array = [];
+				for (var i = 0; i < input.length; i++){
+					array[i] = +input[i].innerHTML;
+				}
+					count.value = array.sort(sortArray);
+			
+			}
+			function sortArray(a, b){
+				if(a > b){
+					return -1;
+				}
+				if (a < b) {
+					return -1;
+				}
+				if(a == b){
+					return 0;
+				}
+			}
+		
+		</script>
+	</body>
+
+16. Даны ссылки. По загрузке страницы добавьте в конец каждой ссылки ее href в круглых скобках.
+
+<body onload="aRef()"> 
+
+		<a href="http://ya.ru">yandex</a>
+		<a href="http://google.com">google</a>
+		<a href="http://msn.com">microsoft</a>
+		
+		<script>
+			function aRef() {
+				var ref = document.getElementsByTagName('a');
+				for(var i = 0; i < ref.length; i++){
+					ref[i].innerHTML = ref[i].innerHTML + '<br>' + '(' + ref[i].href + ')' + '<br>';
+				}
+			}
+		
+		</script>
+	</body>
+
+17 Даны ссылки. По загрузке страницы, если ссылка начинается с http://, то добавьте ей в конец стрелку → (делается так: &rarr;). 
+
+<body onload="aRef()"> 
+
+		<a href="http://ya.ru">yandex</a>
+		<a href="google.com">google</a>
+		<a href="msn.com">microsoft</a>
+		
+		<script>
+			function aRef() {
+				var ref = document.getElementsByTagName('a');
+				for(var i = 0; i < ref.length; i++){
+					if(ref[i].href.indexOf('http://') == 0) {
+						ref[i].innerHTML = '&rarr;' + ref[i].innerHTML + '<br>' ;
+					}
+				}
+			}
+		
+		</script>
+	</body>
+
+18. Даны N абзацев с числами. По нажатию на любой абзац запишите в него квадрат числа, которое в нем находится.
+<body> 
+		<p>2</p>
+		<p>3</p>
+		<p>4</p>
+		<p>5</p>
+		
+	
+		
+		<script>
+				var sqr = document.getElementsByTagName('p');
+				for(var i = 0; i < sqr.length; i++){
+					sqr[i].addEventListener('click', clickSqr); 
+					
+				}
+				function clickSqr() {
+					this.innerHTML = this.innerHTML * this.innerHTML;
+			}
+		
+		</script>
+	</body>
+	
+19. Даны картинки. По нажатию на любую картинку увеличьте ее в 2 раза.
+
+<body> 
+		<img src="1.png">
+		<img src="2.png">
+		
+		
+		<script>
+				var imgh = document.getElementsByTagName('img');
+				for(var i = 0; i < imgh.length; i++){
+					imgh[i].addEventListener('click', imgHeight); 
+					
+				}
+				function imgHeight() {
+					this.height = this.height * 2;
+			}
+		
+		</script>
+	</body>
+
+20. Даны картинки. По первому нажатию на любую картинку увеличьте ее в 2 раза. По второму нажатию - уменьшите обратно.
+
+	<body> 
+		<img src="1.png">
+		<img src="2.png">
+		
+		
+		<script>
+				var imgh = document.getElementsByTagName('img');
+				for(var i = 0; i < imgh.length; i++){
+					imgh[i].addEventListener('click', addHeight); 
+					
+				}
+					function addHeight() {
+						this.height = this.height * 2;
+						this.removeEventListener('click', addHeight);
+						this.addEventListener('click', remHeight);
+					}
+					function remHeight() {
+						this.height = this.height / 2;
+						this.removeEventListener('click', remHeight);
+						this.addEventListener('click', addHeight);
+					}			
+		
+		</script>
+	</body>
+	
+21 Даны N картинок размера 30px. По нажатию на картинку под ними эта картинка появляется размером в 50px
+
+<body> 
+		<img src="1.png" style="height: 30px">
+		<img src="2.png" style="height: 30px"><br><br>
+		
+		<img id="newHeight" style="height="50px">
+		
+		
+		
+		
+		<script>
+				var imgh = document.getElementsByTagName('img');
+				for(var i = 0; i < imgh.length; i++){
+					imgh[i].addEventListener('click', addHeight); 
+					
+				}
+					function addHeight() {
+						var newheight = document.getElementById('newHeight');
+						newheight.src = this.src;
+					}
+					
+		
+		</script>
+	</body>
+22. Дан инпут. Реализуйте кнопочки +1, -1, которые будут увеличивать или уменьшать на 1 значение инпута. Сделайте так, чтобы это значение не могло стать меньше нуля.
+
+	<style>
+			.sOne {
+				width: 50px;
+			}
+		</style >
+		
+	</head>
+	<body> 
+			<input class="sOne" type="submit" value="+1" onclick="pCounts()"><br><br>
+			<input class="sOne" type="submit" value="-1" onclick="mCounts()"><br><br>
+			<input id="chgCount" type="text" value="0">
+		
+		<script>
+				var count = document.getElementById('chgCount');
+				function pCounts() {
+						if (count.value * 1 >= 0) {
+						count.value = count.value * 1 + 1;
+					} 
+				}
+					function mCounts(){
+					if (count.value * 1 > 0) {
+						count.value = count.value * 1 - 1;
+					}
+				}
+		
+		</script>
+	</body>
