@@ -4,28 +4,28 @@
 		<meta charset="utf-8">
 		<title>Lesson_test</title>
 		<style>
-			.sOne {
-				width: 50px;
-			}
+
 		</style >
 		
 	</head>
 	<body> 
-			<input class="sOne" type="submit" value="+1" onclick="pCounts()"><br><br>
-			<input class="sOne" type="submit" value="-1" onclick="mCounts()"><br><br>
-			<input id="chgCount" type="text" value="0">
+		<p>1</p>
+		<p>4</p>
+		<p>3</p>
+		<p>6</p>
+	
+		<input id="counter" value="">
 		
 		<script>
-				var count = document.getElementById('chgCount');
-				function pCounts() {
-						if (count.value * 1 >= 0) {
-						count.value = count.value * 1 + 1;
-					} 
-				}
-					function mCounts(){
-					if (count.value * 1 > 0) {
-						count.value = count.value * 1 - 1;
-					}
+			var counter = document.getElementById('counter');
+			var p = document.getElementsByTagName('p');
+			var count = 0;
+			for (var i = 0; i < p.length; i++ ){
+				p[i].addEventListener('click', counterClick);
+			}
+				function counterClick() {
+					count++;
+					counter.value = count;
 				}
 		
 		</script>

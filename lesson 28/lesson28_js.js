@@ -526,3 +526,101 @@
 		
 		</script>
 	</body>
+	
+	Урок №2
+	
+23. Дан инпут. В него вводится число. По потери фокуса проверьте, что в нем лежит число от 1 до 100. Если это так - покрасьте инпут в зеленый цвет, а если не так - в красный
+
+<body> 
+		<input id="count" onblur="countArray()" placeholder="Ввведите число">
+		
+		<script>
+				function countArray(){
+					var count = document.getElementById('count');
+					var input = count.value;
+					if (input > 0 && input <= 100){
+							count.style.background = 'green';
+					}
+					else {
+						count.style.background = 'red';
+					}
+					
+				}
+		
+		</script>
+	</body>
+	
+24. Дан инпут. Выделите любой текст на странице. По окончанию выделения этот текст должен записаться в этот инпут.
+
+	<body> 
+		<input id="input" placeholder="">
+		<p>Любой текст на странице</p>
+		<script>
+				var input = document.getElementById('input'); 
+				document.documentElement.addEventListener('mouseup', textUp);
+				
+				function textUp(){
+					var text = window.getSelection().toString();
+					input.value = text;
+					
+				}
+		
+		</script>
+	</body>
+	
+25. Даны абзацы с числами. По нажатию на кнопку найдите абзац, в котором хранится максимальное число, и сделайте его красного цвета.
+
+<body> 
+		<p>1</p>
+		<p>4</p>
+		<p>3</p>
+		<p>6</p>
+	
+		<button id="clickOn" onclick="maxCount()">Нажмите</button>
+		
+		<script>
+				var p = document.getElementsByTagName('p');
+				var click = document.getElementById('clickOn');
+				
+				function maxCount(){
+					var max = 0;
+					var count;
+					var num;
+						for (var i = 0; i < p.length; i++){
+							count = +p[i].innerHTML;
+							if(count > max){
+								max = count;
+								num = p[i];
+							}
+						}
+						num.style.backgroundColor='red';
+					}
+				
+		
+		</script>
+	</body>
+	
+26. Дан инпут. Даны абзацы. Пусть в этот инпут записывается суммарное количество нажатий по этим абзацам.
+
+<body> 
+		<p>1</p>
+		<p>4</p>
+		<p>3</p>
+		<p>6</p>
+	
+		<input id="counter" value="">
+		
+		<script>
+			var counter = document.getElementById('counter');
+			var p = document.getElementsByTagName('p');
+			var count = 0;
+			for (var i = 0; i < p.length; i++ ){
+				p[i].addEventListener('click', counterClick);
+			}
+				function counterClick() {
+					count++;
+					counter.value = count;
+				}
+		
+		</script>
+	</body>
