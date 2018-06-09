@@ -624,3 +624,104 @@
 		
 		</script>
 	</body>
+	
+27. Дан инпут с числом. Сделайте так, чтобы каждую секунду в нем появлялся квадрат того числа, которое в нем записано.
+ <body onload="loadpage()"> 
+		
+		<input value="5" id="input">
+		
+		<script>
+			var input = document.getElementById('input');
+			
+			function loadpage() {
+				window.setInterval(inputSqr, 2000);
+			}
+			
+			function inputSqr() {
+				input.value = input.value * input.value;
+			}
+			
+		
+		</script>
+	</body>
+
+28. Дан инпут и кнопка. По нажатию на кнопку сгенерируйте случайную строку из 8-ми символов и запишите в инпут.
+
+<body> 
+		
+		<input id="input">
+		
+		<button id="clickOn" onclick="randomClick()">Нажмите на кнопку</button>
+		
+		<script>
+				function randomClick() {
+					var input = document.getElementById('input');
+					var click = document.getElementById('clickOn');
+					var symb = 'qwertyuiopasdfghjklzxcvbnm123456789'
+					var str = '';
+					for (var i = 0; i <= 8; i++) {
+						str += symb.charAt(Math.floor(Math.random() * symb.length));
+						input.value = str;
+					}
+				}
+			
+		
+		</script>
+	</body>
+
+29. Модифицируйте предыдущую задачу так, чтобы был еще один инпут, в котором задается длина случайной строки. 
+
+<body> 
+		
+		<input id="input">
+		<input id="input_length">
+		<button id="clickOn" onclick="randomClick()">Нажмите на кнопку</button>
+		
+		<script>
+				function randomClick() {
+					var input = document.getElementById('input');
+					var l = document.getElementById('input_length');
+					var symb = 'qwertyuiopasdfghjklzxcvbnm123456789'
+					var array = [];
+					var str = symb.split('');
+					for (var i = 0; i < l.value; i++) {
+						array[i] = str[getRandom(0, str.length)];
+					}
+					input.value = array.join('');
+				}
+				
+				
+				function getRandom(min, max) {
+					return Math.floor(Math.random() * max);
+				}   
+		</script>
+	</body>
+
+30.Модифицируйте предыдущую задачу так, чтобы был еще один инпут, в котором задаются символы, из которых формируется эта случайна строка. Символы задаются без всяких разделитетей, в одну строку.
+
+<body> 
+		
+		<input id="input">
+		<input id="input_length" placeholder="Введите кол-во символов">
+		<input id="symbol" placeholder="Введите символы"><br><br>
+		<button id="clickOn" onclick="randomClick()">Нажмите на кнопку</button>
+		
+		<script>
+				function randomClick() {
+					var input = document.getElementById('input');
+					var l = document.getElementById('input_length');
+					var symb = document.getElementById('symbol');
+					var str = symb.value.split('');
+					var array = [];
+					for (var i = 0; i < l.value; i++) {
+						array[i] = str[getRandom(0, str.length)];
+					}
+					input.value = array.join('');
+				}
+				
+				
+				function getRandom(min, max) {
+					return Math.floor(Math.random() * max);
+				}   
+		</script>
+	</body>
