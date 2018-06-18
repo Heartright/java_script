@@ -10,28 +10,28 @@
 	
 	<body> 
 		
-		<input id="input">
-		<input id="input_length" placeholder="Введите кол-во символов">
-		<input id="symbol" placeholder="Введите символы"><br><br>
-		<button id="clickOn" onclick="randomClick()">Нажмите на кнопку</button>
+		<input id="input" type="text" value="" placeholder="введите число" onblur="timer">
 		
 		<script>
-				function randomClick() {
-					var input = document.getElementById('input');
-					var l = document.getElementById('input_length');
-					var symb = document.getElementById('symbol');
-					var str = symb.value.split('');
-					var array = [];
-					for (var i = 0; i < l.value; i++) {
-						array[i] = str[getRandom(0, str.length)];
+				var input = document.getElelentById('input');
+				
+				function start() {
+					if (parseInt(input.value) > 0){
+						input.value = parseInt(input.value) -1;
 					}
-					input.value = array.join('');
+					if(parseInt(input.value)==0){
+						stop();
+					}
 				}
 				
+				function stop() {
+					window.clearInterval(window.funcId);
+				}
 				
-				function getRandom(min, max) {
-					return Math.floor(Math.random() * max);
-				}   
+				function timer() {
+					window.fincId = window.setInterval(start, 500);
+				}
+				
 		</script>
 	</body>
 	
