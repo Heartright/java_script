@@ -4,66 +4,29 @@
 		<meta charset="utf-8">
 		<title>Lesson_test</title>
 		<style>
-		</style >
+		</style>
 		
 	</head>
 	
 	<body> 
+			<div>
+				<p>Блок</p>
+				<button id="button">закрыть блок</button>
+			</div>        
 		
-		<input id="input">
-		<input id="input_length" placeholder="Введите кол-во символов">
-		<input id="symbol" placeholder="Введите символы"><br><br>
-		<button id="clickOn" onclick="randomClick()">Нажмите на кнопку</button>
-		
+
 		<script>
-				function randomClick() {
-					var input = document.getElementById('input');
-					var l = document.getElementById('input_length');
-					var symb = document.getElementById('symbol');
-					var str = symb.value.split('');
-					var array = [];
-					for (var i = 0; i < l.value; i++) {
-						array[i] = str[getRandom(0, str.length)];
+				var button = document.getElementsByTagName('button');
+					for (var i = 0; i < button.length; i++) {
+					button[i].addEventListener('click', func)
 					}
-					input.value = array.join('');
-				}
-				
-				
-				function getRandom(min, max) {
-					return Math.floor(Math.random() * max);
-				}   
+
+			function func() {
+				this.parentNode.style.display = 'none';
+			}
+			
+			
 		</script>
 	</body>
-<!-- <body>  -->
-		
-		<!-- <input type="text" value="" id="task"> -->
-<!-- <input type="text" value="" id="length" placeholder="введите количество символов строки"> -->
-<!-- <input type="text" value="" id="symbols" placeholder="введите символы"> -->
- <!-- <button id="btn" onclick='func()'>Жми</button> -->
-		
-		<!-- <script> -->
-			<!-- var input = document.getElementById('task'); -->
-<!-- var str = document.getElementById('symbols'); -->
-			<!-- var l = document.getElementById('length'); -->
- 
-<!-- function func() { -->
-	<!-- var rand = []; -->
-	<!-- var arr = str.value.split(''); -->
-	<!-- for (var i = 0; i < l.value; i++) { -->
-		<!-- rand[i] = arr[getRandom(0, arr.length)]; -->
-	<!-- } -->
-	<!-- input.value = rand.join(''); -->
-<!-- } -->
-
-<!-- function getRandom(min, max) { -->
-	<!-- return Math.floor(Math.random() * max); -->
-<!-- }      -->
-		<!-- </script> -->
-	<!-- </body> -->
 	
 </html>
-
-
-
-<!-- var alertElem = elem.classList.contains('www'); -->
-			<!-- alert(alertElem);  -->

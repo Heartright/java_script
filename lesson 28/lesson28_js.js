@@ -725,3 +725,371 @@
 				}   
 		</script>
 	</body>
+	
+31. Дан инпут. В него вводится число. По потери фокуса сделайте так, чтобы в абзаце ниже начал тикать обратный отсчет, начиная с введенного числа. Когда отсчет дойдет до нуля - он должен закончится. 
+
+	<body> 
+		
+		<input id="input" type="text" placeholder="Введите число" onblur="start()">
+		
+		
+		<script>
+			var input = document.getElementById('input');
+		
+		
+			function start() {
+				window.timerId = window.setInterval(timerOn, 1000);
+			}
+			function stop(){
+				window.clearInterval(window.timerId);
+			}
+			
+			
+			function timerOn() {
+				if (parseInt(input.value) > 0){
+					input.value = parseInt(input.value) -1;
+				}
+				if (parseInt(input.value) == 0) {
+					
+				}
+			}
+				
+		</script>
+	</body>
+	
+32. Дан абзац. Сделайте так, чтобы каждую секунду он менял свой цвет с красного на зеленый и наоборот.
+
+<body onload="start()"> 
+		
+		<p id="txt">Text</p>
+		
+		
+		<script>
+			var text = document.getElementById('txt');
+		
+		
+			function start() {
+				window.setInterval(timerOn, 1000);
+			}
+			
+			
+			function timerOn() {
+				if (text.style.color == 'red'){
+					text.style.color = 'green'
+				}
+				else{
+					text.style.color = 'red';
+				}
+			}
+				
+		</script>
+	</body>
+	
+33. Дан абзац. Дан массив цветов ['red', 'green', 'blue']. Сделайте так, чтобы каждую секунду абзац менял свой цвет на определенное значение их массива: сначала 'red', потом 'green' и так далее. Как только цвета в массиве закончатся - все начнется сначала. Количество цветов в массиве может быть любым.
+ 	
+	<body onload="start()"> 
+		
+		<p id="txt">Text</p>
+		
+		
+		<script>
+			var text = document.getElementById('txt');
+			var array = ['red', 'green', 'blue'];
+			var i = 0;
+			
+			function start() {
+				window.setInterval(timerOn, 1000);
+			}
+			
+			
+			function timerOn() {
+				text.style.color = array[i];
+				i++;
+				if (i >= array.length){
+					i = 0;
+				}
+			}
+				
+		</script>
+	</body>
+
+34.Дан абзац. Дан массив строк ['один', 'два', 'три']. Под абзацем ссылка 'следующая строка'. По заходу на страницу в абзаце должен стоять нулевой элемент этого массива, а по нажатию на ссылку - вставлятся следующий элемент. Скрыть решение.
+<body> 
+		
+		<p id="txt"></p>
+		<a href="#" id="click" onclick="clickRef()">cледующая строка</a>
+		
+		<script>
+			var text = document.getElementById('txt');
+			var click = document.getElementById('click');
+			var array = ['один', 'два', 'три'];
+			var i = 0;
+			text.innerHTML = array[i];
+			
+			
+			function clickRef() {
+				text.innerHTML = array[i+1];
+				i++;
+				if (i == array.length-1){
+					i = -1;
+				}
+			}
+				
+		</script>
+	</body>
+
+35. Даны инпуты с числами. Произвольное количетсво, пусть три. В первый инпут запишите 1, через секунду во второй инпут запишите 2, еще через секунду в третий инпут 3, потом через секунду в первый инпут запишите 4, во второй 5 и так далее до бесконечности.
+	
+	<body> 
+		
+		<input type="text"><br><br>
+		<input type="text"><br><br>
+		<input type="text"><br><br>
+		
+		<script>
+			var input = document.getElementsByTagName('input');
+			window.setInterval(start, 1000);
+			var i = 0;
+			var count = 0;
+			
+			
+			function start() {
+				input[count].value = i + 1;
+				i++;
+				count++;
+				if (count == input.length){
+					count = 0;
+				}
+			}
+				
+		</script>
+	</body>
+	
+
+Урок №3
+
+36. Дана ссылка. Дан чекбокс. По нажатию на ссылку меняйте состояние чекбокса с отмеченного на неотмеченное и наоборот.
+
+<body> 
+		<input id="input" type="checkbox" checked=""><br><br>
+		<a href="#" onclick="clickOn()">text</a>
+		
+		<script>
+			function clickOn() {
+				var input = document.getElementById('input');
+					if(input.checked){
+						input.checked = false;
+					}
+					else {
+						input.checked = true;
+					}
+			
+			}
+				
+		</script>
+	</body>
+
+37. Даны чекбокс. Дана кнопка. По нажатию на кнопку сделайте все чекбоксы отмеченными.
+
+<body> 
+		<input type="checkbox">
+		<input type="checkbox">
+		<input type="checkbox">
+		<input type="checkbox">
+		<button onclick="clickOn()">Push</button>
+		
+		<script>
+			function clickOn() {
+				var input = document.getElementsByTagName('input');
+					for(var i = 0; i < input.length; i++){
+						input[i].checked = true;
+					}
+			
+			}
+				
+		</script>
+	</body>
+	
+38. Спросите у пользователя какой язык (html, css, js, php) он знает с помощью радио кнопочек. Выведите этот язык в абзац. 
+
+	<body> 
+		<input type="radio" value="html">html
+		<input type="radio" value="css">css
+		<input type="radio" value="js">js
+		<input type="radio" value="php">php
+	
+		<p id="namelng"></p>
+		<script>
+			
+				var input = document.getElementsByTagName('input');
+				var namelng = document.getElementById('namelng');
+					for(var i = 0; i < input.length; i++){
+						input[i].addEventListener('change', clickOn);
+					}
+					
+				function clickOn() {
+					if(this.checked){
+							namelng.innerHTML = this.value;
+					}
+			}
+				
+		</script>
+	</body>
+	
+39. Спросите у пользователя какие языки (html, css, js, php) он знает с помощью чекбоксов. Выбранные языки должны выводится в абзац ниже через запятую. 
+
+<body> 
+		<input type="radio" value="html">html
+		<input type="radio" value="css">css
+		<input type="radio" value="js">js
+		<input type="radio" value="php">php
+	
+		<p id="namelng"></p>
+		<script>
+			
+				var input = document.getElementsByTagName('input');
+				var namelng = document.getElementById('namelng');
+				var array = [];
+					for(var i = 0; i < input.length; i++){
+						input[i].addEventListener('change', clickOn);
+					}
+					
+				function clickOn() {
+					if(this.checked){
+							array.push(this.value);
+							namelng.innerHTML = array;
+					}
+			}
+				
+		</script>
+	</body>
+
+40. Дан чекбокс. Дан инпут. Сделайте так, что если чекбокс отмечен - инпут видимый, если не отмечен - не видимый.
+
+<body> 
+		<input type="checkbox" checked="" onchange="clickOn()" id="chb">
+		<input  id="input">
+
+		<script>
+			
+				var chb = document.getElementById('chb');
+				var input = document.getElementById('input');
+				
+				function clickOn() {
+					if(!chb.checked){
+						input.style.display = "none";
+					}
+					else{
+						input.style.display = "inline";
+					}
+			}
+				
+		</script>
+	</body>
+	
+41. Даны чекбоксы. Под каждым чекбоксом размещен абзац. Сделайте так, что если чекбокс отмечен - соответствующий абзац видимый, а если не отмечен - не видимый.
+
+	<body> 
+		<input type="checkbox" checked="" onclick="clickOn()">
+		<p>text</p>
+		<input type="checkbox" checked="" onclick="clickOn()">
+		<p>text</p>
+		<input type="checkbox" checked="" onclick="clickOn()">
+		<p>text</p>
+
+		<script>
+			
+				var input = document.getElementsByTagName('input');
+				var elem = document.querySelectorAll('input + p');
+				
+				function clickOn() {
+					for(var i = 0; i < input.length; i++){
+					
+						if(!input[i].checked){
+							elem[i].style.display = "none";
+						}
+						else{
+							elem[i].style.display = "block";
+					}
+				}
+			}
+				
+		</script>
+	</body>
+	
+42. Дан инпут. Даны li. В инпут пишется номер. Сделайте так, чтобы по вводу числа, li с заданным номером покрасился в красный цвет. 	
+
+<body> 
+		<input type="text" id="input" onchange="clickOn()" >
+		<ul>
+			<li>text1</li>
+			<li>text2</li>
+			<li>text3</li>
+			<li>text4</li>
+		</ul>
+
+		<script>
+			var input = document.getElementById('input');
+			var i = 0;
+			
+			function clickOn() {
+				i = +input.value;
+				var elem = document.querySelectorAll('li');
+				elem[i-1].style.color = 'red';
+			}
+				
+		</script>
+	</body>
+	
+43. Дан абзац. Даны чекбоксы 'перечеркнуть', 'сделать жирным', 'сделать красным'. Если соответствующий чекбокс отмечен - заданное действие происходит с абзацем (становится красным, например). Если чекбоксу снять отметку - действие отменяется.
+
+	<body> 
+		<p id="text">text</p>
+		
+		<input type="checkbox" value="text-decoration:line-through;">перечеркнуть 
+		<input type="checkbox" value="font-weight:bold;">сделать жирным
+		<input type="checkbox" value="color:red">сделать красным   
+		
+
+		<script>
+			var input = document.getElementsByTagName('input');
+			var text = document.getElementById('text');
+			
+			for(var i =0; i < input.length; i++ ) {
+				input[i].addEventListener('change', clickOn);
+			}
+			
+			function clickOn() {
+				if (this.checked) {
+						text.style.cssText = this.value;
+					} 
+				else {
+					text.style.cssText = 'none';
+					}
+				}
+			
+		</script>
+	</body>
+	
+44. Дан блок с кнопкой 'закрыть блок'. По нажатию на эту кнопку блок должен исчезнуть. Кнопка размещается внутри блока и должна исчезнуть вместе с ним. Блоков может быть любое количество, каждый из них закрывает своя кнопка.
+
+	<body> 
+			<div>
+				<p>Блок</p>
+				<button id="button">закрыть блок</button>
+			</div>        
+		
+
+		<script>
+				var button = document.getElementsByTagName('button');
+					for (var i = 0; i < button.length; i++) {
+					button[i].addEventListener('click', func)
+					}
+
+			function func() {
+				this.parentNode.style.display = 'none';
+			}
+			
+			
+		</script>
+	</body>
