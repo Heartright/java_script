@@ -14,6 +14,7 @@
 				<button id="button">закрыть блок</button>
 			</div>        
 		
+<<<<<<< HEAD
 
 		<script>
 				var button = document.getElementsByTagName('button');
@@ -26,6 +27,30 @@
 			}
 			
 			
+=======
+		<input id="input" type="text" value="" placeholder="введите число" onblur="timer()">
+		
+		<script>
+				var input = document.getElelentById('input');
+				
+				function start() {
+					if (parseInt(input.value) > 0){
+						input.value = parseInt(input.value) -1;
+					}
+					if (parseInt(input.value)==0){
+						stop();
+					}
+				}
+				
+				function stop() {
+					window.clearInterval(window.funcId);
+				}
+				
+				function timer() {
+					window.funcId = window.setInterval(start, 500);
+				}
+				
+>>>>>>> e2c776561e33201cea8f09068dc5108550af4ff6
 		</script>
 	</body>
 	

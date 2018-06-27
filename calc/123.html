@@ -9,35 +9,73 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   </head>
   <body>
-    <div class="col-sm-4">
-            <div class="calc">
-              <h2>Расчет стоимости</h2>
-              <label for="rooms">Выберите количество комнат</label>
-              <select class="form-control" name="count_rooms" id="rooms">
+    <div class="container">
+            <div class="row">
+         <div class="col-md-11 col-md-offset-5">
+                    <div class="calc">
+                        <h2>Расчет стоимости</h2>
+                        <label for="rooms">Выберите количество комнат</label>
+                        <select class="form-control" name="count_rooms" id="rooms">
               <option value="0">Укажите количество комнат</option>
                 <option value="1">1-комнатная квартира</option>
                 <option value="2">2х-комнатная квартира</option>
                 <option value="3">3х-комнатная квартира</option>
               </select>
-              <br>
-              <label for="type_house">Выберите фонд</label>
-              <select name="type_rooms" id="type_house" class="form-control">
+                        <br>
+                        <label for="type_house">Выберите фонд</label>
+                        <select name="type_rooms" id="type_house" class="form-control">
                 <option value="0">Укажите фонд</option>
                 <option value="1">Новостройка с подготовкой</option>
                 <option value="2">Новостройка без подготовки</option>
                 <option value="3">Вторичный фонд</option>
                 <option value="4">Исторические здания</option>
+                <option value="5">Косметический ремонт</option>
               </select>
-              <br>
-              <label for="count">Укажите метраж</label>
-              <input  type="text" id="count" class="form-control" required placeholder="Введите метраж м2" >
-              <br>
-    <div class="form-group">
-        <label for="total-price">Итоговая цена</label>
-        <input type="text" class="form-control" id="total-price">
-    </div>
-    <button type="submit" class="btn btn-default" id="click">Подсчитать </button>
+                        <br>
+                        <label for="count">Укажите метраж</label>
+                        <input type="text" id="count" class="form-control" placeholder="Введите метраж м2">
+                        <br>
+                        <div class="form-group">
+                            <label for="total-price">Итоговая цена</label>
+                            <input type="text" class="form-control" id="total-price">
+                        </div>
+                        <button type="submit" class="btn btn-default" id="click">Подсчитать</button>
+                    </div> 
+        </div>
+        </div>
+            </div>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+        var $dir = $('#rooms'),
+            $num = $('#type_house'),
+            $tot = $('#total-price'),
+            $counts = $('#count'),
+            prices = {
+                1: {
+                    1: 2950,
+                    2: 4300,
+                    3: 4500,
+                    4: 5100,
+                    5: 2100
+                },
+                2: {
+                    1: 2800,
+                    2: 4000,
+                    3: 4100,
+                    4: 4800,
+                    5: 2000
+                },
+                3: {
+                    1: 2650,
+                    2: 3850,
+                    3: 3500,
+                    4: 4600,
+                    5: 1800
+                }
+            };
 
+<<<<<<< HEAD
 <script>
   var $dir = $('#rooms')
    ,$num = $('#type_house')
@@ -60,11 +98,23 @@ function prices_calc() {
     alert('Укажите помещение или фонд');
   }
 }
+=======
+        function prices_calc() {
+            var dir = $dir.val();
+            var num = $num.val();
+            if (prices[dir] && prices[dir][num]) {
+                var total = prices[dir][num] * $("#count").val();
+                $tot.val(total);
+            } else {
+                alert('Укажите количество комнат и фонд');
+            }
+        }
+>>>>>>> e2c776561e33201cea8f09068dc5108550af4ff6
 
-$(function() {
-         $('#click').on('click', prices_calc);
-      })
+        $(function() {
+            $('#click').on('click', prices_calc);
+        })
 
-</script>
+    </script>
   </body>
 </html>
